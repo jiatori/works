@@ -1,0 +1,352 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/variable/pretendardvariable.css");
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+
+
+/* 공통부분 */
+body {font-family: 'Pretendard Variable', sans-serif; line-height: 1.5;}
+h1 {font-family: 'Times New Roman'; font-style: italic;}
+h2 {font-family: 'Times New Roman'; font-style: italic; font-size: 54px; font-weight: 900; color: #d37347;}
+h3 {font-size: 28px; font-weight: 500; color: #222;}
+.viewMore {font-size: 16px; font-weight: 500; color: #555;}
+.arrows {font-size: 30px; color: rgb(255, 255, 255, 0.7);}
+.wrap {width: 100%; overflow: hidden; background: #FBF9F6}
+
+
+
+
+/* header */
+header {width: 100%; position: fixed; z-index: 100; background: rgb(255, 255, 255, 0.3); transition: all 0.3s;}
+.headerInner {width: 90%; margin: 0 auto; padding-top: 1%; box-sizing: border-box;}
+    /* tnb */
+    .headerInner .headerTnb {width: 100%; padding-left: 83%; display: flex; justify-content: space-between; box-sizing: border-box; margin-bottom: 10px;}
+    .headerInner .headerTnb li {width: auto}
+    .headerInner .headerTnb li a {display: block; width: 100%; height: 100%; font-size: 14px; font-weight: bold; color: #fff; transition: all 0.3s;}
+    /* gnb */
+    .headerInner .headerGnb {width: 100%; height: 70px; position: relative; line-height: 70px; padding-bottom: 10px;}
+    .headerInner .headerGnb h1.logo {width: auto; position: absolute; top: -18px; left: 0;}
+    .headerInner .headerGnb h1.logo a {display: inline-block;}
+    .headerInner .headerGnb h1.logo a img {transition: all 0.3s;}
+    .headerInner .headerGnb ul {position: absolute; right: 0; top: 0;}
+    .headerInner .headerGnb ul li {width: auto; float: left; margin-right: 50px; box-sizing: border-box; line-height: none; color: #fff; text-align: center;}
+    .headerInner .headerGnb ul li a {display: block; width: 100%; height: 100%; font-size: 18px; font-weight: bold; transition: all 0.3s;}
+    .headerInner .headerGnb ul li.reservation {width: 150px; color: #d37348; border: 1px solid #d37348; padding: 0 10px; margin-right: 0; box-sizing: border-box; line-height: 2; margin-top: 18px;}
+/* hover */
+.headerInner .headerTnb li a:hover, .headerInner .headerTnb li a:focus {color: #d37348;}
+.headerInner .headerGnb ul li a:hover, .headerInner .headerGnb ul li a:focus {color: #d37348;}
+.headerInner .headerGnb ul li.reservation {position:relative; display: block;}
+.headerInner .headerGnb ul li.reservation a::before {content: ''; width: 0%; height: 100%; position: absolute; background: rgb(211,115,71); left: 0; top: 0; transition: all 0.4s; z-index: -1;}
+.headerInner .headerGnb ul li.reservation a:hover::before, .headerInner .headerGnb ul li.reservation a:focus::before {width: 100%;}
+.headerInner .headerGnb ul li.reservation a:hover, .headerInner .headerGnb ul li.reservation a:focus {color: #fff;}
+.headerInner .headerGnb h1.logo a:hover img {filter: brightness(120%);}
+/* on */
+header.on {background: rgb(255, 255, 255, 1);}
+header.on .headerInner .headerTnb li a, header.on .headerInner .headerGnb ul li {color: #222;}
+header.on .headerInner .headerGnb ul li.reservation {color: #d37348;}
+    /* hover */
+    header.on .headerInner .headerTnb li a:hover, .headerInner .headerTnb li a:focus {color: #d37348;}
+
+
+
+
+/* section.visual */
+section.visual {width: 100%; height: 100vh; overflow: hidden; position: relative;}
+section.visual .img {width: 100%;}
+section.visual .img img {width: 100%;}
+
+    /* slick-arrow */
+    .slick-arrow {position: absolute; top: 43%; border: none; color: transparent; background: none; z-index: 20; width: 30px; height: 30px;}
+    .slick-arrow::after {content: '\f053'; font-family: 'fontAwesome'; position: absolute; top: 0; left: 0; font-size: 30px; color: rgb(255, 255, 255, 0.7); cursor: pointer; transition: all 0.3s;}
+    .slick-prev {left: 5%;}
+    .slick-next {right: 5%;}
+    .slick-next::after {content: '\f054';}
+        /* slick-arrow hover */
+        .slick-arrow:hover::after, .slick-arrow:focus::after {color: #555;}
+
+    /* slick-dots */
+    .slick-dots {position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); z-index: 20;}
+    .slick-dots li {width: 8px; height: 8px; border-radius: 50%; background: rgb(255, 255, 255, 0.4); border: none; text-indent: -999999px; float: left; margin-right: 25px; cursor: pointer; transition: all 0.3s; line-height: 8px;}
+    .slick-dots li:last-child {margin-right: 0;}
+    .slick-dots li.slick-active {background: #fff; width: 9px; height: 9px;}
+        /* slick-dots hover */
+        .slick-dots li:hover, .slick-dots li:focus {background: #fff;}
+
+    /* visualInner */
+    section.visual .visualInner {width: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+    section.visual .visualInner h1 {width: 100% ; text-align: center; font-size: 70px; line-height: 0.8; color: rgb(255,255,255,0.9); margin-top: 20%; margin-bottom: 8%;}
+    section.visual .visualInner h1 span {font-size: 40px;}
+        /* weather */
+        section.visual .visualInner ul.weather {width: 20%; margin: 0 auto 1.5%; display: flex; justify-content: space-between; color: #fff; font-size: 16px; font-weight: bold; line-height: none;}
+        section.visual .visualInner ul.weather li {width: 100%; text-align: center;}
+        section.visual .visualInner ul.weather li.day {line-height: 1; padding-top: 3px;}
+        section.visual .visualInner ul.weather li.txt {line-height: 35px; height: 35px;}
+        section.visual .visualInner ul.weather li.icon {width: 100%; box-sizing: border-box; line-height: 35px; height: 35px;}
+        section.visual .visualInner ul.weather li.sunriseIcon {padding-left: 10px; margin-left: 10px; border-left: 0.5px dotted #ccc; box-sizing: border-box;}
+        /* search */
+        section.visual .visualInner ul.search {width: 60%; margin: 0 auto 3%; display: flex; justify-content: space-between; }
+        section.visual .visualInner ul.search li {width: 30%; padding: 5px 0 5px 12px; margin-right: 15px; position: relative; background: rgb(0, 0, 0, 0.1); border-bottom: 0.5px dotted #ccc; translate: all 0.2s; box-sizing: border-box;}
+        section.visual .visualInner ul.search li a {display: block; width: 100%; height: 100%; transition: all 0.2s; font-size: 18px; font-weight: bold; color: #fff;}
+        section.visual .visualInner ul.search li i.fa {float: right; padding-top: 5px; padding-right: 10px; box-sizing: border-box;}
+        section.visual .visualInner ul.search .searchBtn {width: 14%; padding: 5px 12px; margin-left: 15px; margin-right: 0; box-sizing: border-box; text-align: center; border: 1px solid #fff; background: none;}
+        section.visual .visualInner ul.search .searchBtn a {display: inline-block;}
+/* hover */
+section.visual .visualInner ul.search .searchBtn {position:relative;}
+section.visual .visualInner ul.search .searchBtn a::before {content: ''; width: 0%; height: 100%; position: absolute; background: #fff; left: 0; top: 0; transition: all 0.4s; z-index: -1;}
+section.visual .visualInner ul.search .searchBtn a:hover::before, section.visual .visualInner ul.search .searchBtn a:focus::before {width: 100%;}
+section.visual .visualInner ul.search .searchBtn a:hover, section.visual .visualInner ul.search .searchBtn a:focus {color: #d37348;}
+section.visual .visualInner ul.search li a:hover, section.visual .visualInner ul.search li a:focus {color: #d37348;}
+section.visual .arrows .left:hover, section.visual .arrows .left:focus {color: #555;}
+section.visual .arrows .right:hover, section.visual .arrows .right:focus {color: #555;}
+
+/* animation */
+@keyframes sizeUp{
+    0% {transform: scale(1.5);}
+}
+section.visual .img img.motion {animation-name: sizeUp; animation-duration: 2s;}
+@keyframes titUp {
+    0% {transform: translateY(50px);}
+}
+section.visual .visualInner h1.motion {animation-name: titUp; animation-duration: 2.3s;}
+
+
+
+
+/*section.offers*/
+section.offers {width: 100%; height: 100vh; background: #FBF9F6;}
+section.offers .offersInner {width: 100%; padding: 250px 0 150px 8%; display: flex;}
+    /* leftBox */
+    section.offers .offersInner .leftBox {width: 30%;}
+    section.offers .offersInner .leftBox h2 {width: 100%; margin-bottom: 15px;}
+    section.offers .offersInner .leftBox .txt {width: 100%; font-size: 18px; font-weight: normal; margin-bottom: 40px; margin-left: 10px; color: #555;}
+    section.offers .offersInner .leftBox .viewMore {width: 100%; margin-left: 10px;}
+    section.offers .offersInner .leftBox .viewMore a {display: inline-block; transition: all 0.5s}
+    /* rightBox */
+    section.offers .offersInner .rightBox {width: 70%; position: relative;}
+    section.offers .offersInner .rightBox .slide {width: 100%; overflow: hidden;}
+    section.offers .offersInner .rightBox .slide li {width: 380px; margin-right: 60px;}
+    section.offers .offersInner .rightBox .slide li a {display: block; width: 100%; height: 100%;  transition: all 0.5s;}
+    section.offers .offersInner .rightBox .slide li a .img {width: 380px; height: 58%; margin-bottom: 25px; overflow: hidden;}
+    section.offers .offersInner .rightBox .slide li a .img img {width: 100%; height: 100%; transition: all 0.7s;}
+    section.offers .offersInner .rightBox .slide li a .txtBox {width: 100%; height: 30%;}
+    section.offers .offersInner .rightBox .slide li a .txtBox h3 {width: 100%; margin-bottom: 14px; color: #222;}
+    section.offers .offersInner .rightBox .slide li a .txtBox .txt {width: 100%; font-size: 16px; color: #666; font-weight: normal; margin-bottom: 50px;}
+    section.offers .offersInner .rightBox .slide li a .price {width: 100%; font-size: 28px; color: #666; font-weight: normal;}
+    section.offers .offersInner .rightBox .slide li a .price span {font-size: 18px;}
+
+/* slick-arrow */
+.offers .slick-arrow {position: absolute; top: 30%; border: none; color: transparent; background: none; width: 30px; height: 30px;}
+.offers .slick-arrow::after {content: '\f053'; font-family: 'fontAwesome'; position: absolute; top: 0; left: 0; font-size: 30px; color: rgb(255, 255, 255, 0.7); cursor: pointer; transition: all 0.3s; z-index: 100;}
+.offers .slick-prev {left: 2%;}
+.offers .slick-next {left: 85%;}
+.offers .slick-next::after {content: '\f054';}
+    /* slick-arrow hover */
+    .offers .slick-arrow:hover::after, .slick-arrow:focus::after {color: #555;}
+
+/* hover */
+section.offers .offersInner .leftBox .viewMore a:hover, section.offers .offersInner .leftBox .viewMore a:focus {color: #d37348; font-weight: bold;}
+section.offers .offersInner .rightBox .slide li a:hover, section.offers .offersInner .rightBox .slide li a:focus {opacity: 0.6;}
+section.offers .offersInner .rightBox .slide li a:hover .img img, section.offers .offersInner .rightBox .slide li a:focus .img img {transform: scale(1.2);}
+/* animation */
+section.offers .offersInner .leftBox.motion {animation-name: titUp; animation-duration: 1.4s;}
+
+
+
+
+/*section.facil*/
+section.facil {width: 100%; background: #FBF9F6;}
+section.facil .facilInner {width: 100%; display: flex; padding-top: 5%;}
+    /* leftBox */
+    section.facil .facilInner .leftBox {width: 50%; height: 100vh; position: relative;}
+    section.facil .facilInner .leftBox img {width: 100%; height: 100%; display: block; z-index: -1;}
+    /* rightBox */
+    section.facil .facilInner .rightBox {width: 50%; padding-left: 3%; box-sizing: border-box; position: relative;}
+    section.facil .facilInner .rightBox .txtBox {text-align: center; padding-top: 150px; margin-bottom: 80px;}
+    section.facil .facilInner .rightBox .txtBox p {color: #555; font-size: 18px; font-weight: normal;}
+    section.facil .facilInner .rightBox .viewMore {position:absolute; bottom: 30px; right: 5%; transition: all 0.5s;}
+    section.facil .facilInner .rightBox .imgBox {width: 100%; overflow: hidden; position: relative;}
+    section.facil .facilInner .rightBox .imgBox .slide {width: 1320px;}
+    section.facil .facilInner .rightBox .imgBox .slide li {width: 100%;}
+    section.facil .facilInner .rightBox .imgBox .slide li a {display: block; width: 100%; height: 100%; transition: all 0.5s;}
+    section.facil .facilInner .rightBox .imgBox .slide li .img {width: 380px; height: 55%; overflow: hidden;}
+    section.facil .facilInner .rightBox .imgBox .slide li .img img {width: 100%; height: 100%; transition: all 0.7s;}
+    section.facil .facilInner .rightBox .imgBox .slide li .subTxt {width: 100%; margin-top: 20px; color: #222;}
+    section.facil .facilInner .rightBox .imgBox .slide li .subTxt p {font-size: 16px; font-weight: normal; margin-top: 15px; color: #666;}
+/* slick-arrow */
+.facil .slick-arrow {position: absolute; top: 35%; border: none; color: transparent; background: none; width: 30px; height: 30px;}
+.facil .slick-arrow::after {content: '\f053'; font-family: 'fontAwesome'; position: absolute; top: 0; left: 0; font-size: 30px; color: rgb(255, 255, 255, 0.7); cursor: pointer; transition: all 0.3s; z-index: 100;}
+.facil .slick-prev {left: 2%;}
+.facil .slick-next {left: 760px;}
+.facil .slick-next::after {content: '\f054';}
+    /* slick-arrow hover */
+    .facil .slick-arrow:hover::after, .slick-arrow:focus::after {color: #555;}
+/* hover */
+section.facil .facilInner .rightBox a:hover, section.facil .facilInner .rightBox a:focus {color: #d37348; font-weight: bold;}
+section.facil .facilInner .rightBox .imgBox .slide li a:hover, section.facil .facilInner .rightBox .imgBox .slide li a:focus {opacity: 0.6;}
+section.facil .facilInner .rightBox .imgBox .slide li a:hover .img img, section.facil .facilInner .rightBox .imgBox .slide li a:focus .img img {transform: scale(1.2);}
+/* animation */
+section.facil .facilInner .rightBox .txtBox.motion {animation-name: titUp; animation-duration: 1.4s;}
+
+
+
+
+/* section.banquet */
+section.banquet {width: 100%; background: #FBF9F6;}
+section.banquet .banquetInner {width: 100%; display: flex;}
+    /* leftBox */
+    section.banquet .banquetInner .leftBox {width: 50%; padding-left: 3%; box-sizing: border-box; position: relative;}
+    section.banquet .banquetInner .leftBox .txtBox {text-align: center; padding-top: 150px; margin-bottom: 80px;}
+    section.banquet .banquetInner .leftBox .txtBox p {color: #555; font-size: 18px; font-weight: normal;}
+    section.banquet .banquetInner .leftBox .viewMore {position: absolute; left: 5%; bottom: 30px; transition: all 0.5s;}
+    section.banquet .banquetInner .leftBox .imgBox {box-sizing: border-box; position: relative;}
+    section.banquet .banquetInner .leftBox .imgBox ul {width: 100%; display: flex; justify-content: space-between; overflow: hidden;}
+    section.banquet .banquetInner .leftBox .imgBox ul li {width: 100%; margin-right: 4%;}
+    section.banquet .banquetInner .leftBox .imgBox ul li a {display: block; width: 100%; height: 100%; transition: all 0.5s;}
+    section.banquet .banquetInner .leftBox .imgBox ul li .img {width: 380px; overflow: hidden;}
+    section.banquet .banquetInner .leftBox .imgBox ul li .img img {width: 100%; transition: all 0.7s;}
+    section.banquet .banquetInner .leftBox .imgBox ul li .subTxt {width: 100%; margin-top: 20px; color: #222;}
+    section.banquet .banquetInner .leftBox .imgBox ul li .subTxt p {font-size: 16px; font-weight: normal; margin-top: 15px; color: #666;}
+    /* rightBox */
+    section.banquet .banquetInner .rightBox {width: 50%; height: 100vh; position: relative;}
+    section.banquet .banquetInner .rightBox img {width: 100%; height: 100%; display: block; z-index: -1;}
+/* hover */
+section.banquet .banquetInner .leftBox a:hover, section.banquet .banquetInner .leftBox a:focus {color: #d37348; font-weight: bold;}
+section.banquet .banquetInner .leftBox .imgBox ul li a:hover, section.banquet .banquetInner .leftBox .imgBox ul li a:focus {opacity: 0.6;}
+section.banquet .banquetInner .leftBox .imgBox ul li a:hover .img img, section.banquet .banquetInner .leftBox .imgBox ul li a:focus .img img {transform: scale(1.2);}
+/* animation */
+section.banquet .banquetInner .leftBox .txtBox.motion {animation-name: titUp; animation-duration: 1.4s;}
+
+
+
+
+/* section.dining */
+section.dining {width: 100%; height: 100vh; background: #FBF9F6; overflow: hidden;}
+section.dining .diningInner {width: 100%; position: relative; padding-top: 130px;}
+    /* tit */
+    section.dining .diningInner .titBox {width: 100%; text-align: center; margin-bottom: 60px;}
+    section.dining .diningInner .titBox p {font-size: 18px; color: #555; font-weight: normal;}
+    /* imgBox */
+    section.dining .diningInner .slide {width: 2300px; position: absolute; right: -40%;}
+    section.dining .diningInner .slide li {width: 100%; position: relative;}
+    section.dining .diningInner .slide li .img {width: 429px; border-radius: 270px 270px 0 0; overflow: hidden;}
+    section.dining .diningInner .slide li .img img {width: 100%;}
+    section.dining .diningInner .slide li .txtBox {width: auto; position: absolute; left: 45%; top:35%;}
+    section.dining .diningInner .slide li .txtBox h3 {width: 100%; margin-bottom: 15px;}
+    section.dining .diningInner .slide li .txtBox p {margin-bottom: 30px; font-size: 16px; font-weight: normal; color: #666;}
+    section.dining .diningInner .slide li .txtBox a {display: inline-block; transition: all 0.5s;}
+
+/* slick-arrow */
+.dining .slick-arrow {position: absolute; top: 50%; transform: translateY(-50%); border: none; color: transparent; background: none; width: 30px; height: 30px;}
+.dining .slick-arrow::after {content: '\f053'; font-family: 'fontAwesome'; position: absolute; top: 0; left: 0; font-size: 30px; color: rgb(102, 102, 102, 0.2); cursor: pointer; transition: all 0.3s; z-index: 100;}
+.dining .slick-prev {left: -150px;}
+.dining .slick-next {left: 53%;}
+.dining .slick-next::after {content: '\f054'; color: rgb(255, 255, 255, 0.7)}
+    /* slick-arrow hover */
+    .dining .slick-arrow:hover::after, .slick-arrow:focus::after {color: #555;}
+
+/* hover */
+section.dining .diningInner ul li .txtBox a:hover, section.dining .diningInner ul li .txtBox a:focus {color: #d37348; font-weight: bold;}
+/* animation */
+@keyframes titUp {
+    0% {transform: translateY(50px);}
+}
+section.dining .diningInner .titBox.motion {animation-name: titUp; animation-duration: 1.4s;}
+@keyframes leftBig {
+    0% {transform: translateX(800px);}
+}
+section.dining .diningInner ul.motion {animation-name: leftBig; animation-duration: 1.4s;}
+
+
+
+
+/* section.rooms */
+section.rooms {width: 100%; height: 120vh; background: url(../img/index_rooms_bg.png) no-repeat center/cover; background-attachment: fixed; position: relative; }
+section.rooms .roomsInner {width: 80%; position: relative; margin: 0 auto; padding-top: 200px; box-sizing: border-box;}
+    section.rooms .roomsInner .img {width: 100%; overflow: hidden;}
+    section.rooms .roomsInner .img img {width: 100%;}
+    section.rooms .roomsInner .txtBox {width: 100%; text-align: center; position: absolute; top: 50%; transform: translateY(-50%); padding-top: 50px;}
+    section.rooms .roomsInner .txtBox h3 {width: 100%; color: #fff; font-weight: bold; font-size:46px; margin-bottom: 40px; text-transform: uppercase; line-height: 1;}
+    section.rooms .roomsInner .txtBox h3 span {font-size: 16px;}
+    section.rooms .roomsInner .txtBox .txt {width: 100%; color: #fff; margin-bottom: 50px; font-size: 16px; font-weight: normal;}
+    section.rooms .roomsInner .txtBox a {display: inline-block; color: #fff; transition: all 0.5s;}
+    section.rooms .roomsInner .page {width: auto; position: absolute; right: 10px; bottom: 25px; color: #fff; font-size: 16px; font-weight: 600; transform: translateX(-50%);}
+    /* slick-arrow */
+    .slick-arrow {position: absolute; top: 50%; transform: translateY(-50%); border: none; color: transparent; background: none; z-index: 20; width: 30px; height: 30px;}
+    .slick-arrow::after {content: '\f053'; font-family: 'fontAwesome'; position: absolute; top: 0; left: 0; font-size: 30px; color: rgb(255, 255, 255, 0.7); cursor: pointer; transition: all 0.3s; width: 100%; height: 100%;}
+    .slick-prev {left: 2%;}
+    .slick-next {right: 2%;}
+    .slick-next::after {content: '\f054';}
+        /* slick-arrow hover */
+        .slick-arrow:hover::after, .slick-arrow:focus::after {color: #555;}
+/* hover */
+section.rooms .roomsInner .txtBox a:hover, section.rooms .roomsInner .txtBox a:focus {color: #d37348; font-weight: bold;}
+/* animation */
+section.rooms .roomsInner ul li.motion .txtBox h3 {animation-name: titUp; animation-duration: 1.4s;}
+section.rooms .roomsInner ul li.motion .img img {animation-name: sizeUp; animation-duration: 2s;}
+
+
+
+
+/* section.contect_us */
+section.contectus {width: 100%; overflow: hidden; padding-bottom: 350px; background: #FBF9F6; position: relative;}
+section.contectus .contectusInner {width: 100%; margin-left: 17%; display: flex;}
+    /* left */
+    section.contectus .contectusInner .left {width: 30%; padding-top: 10%; padding-bottom: 10%; margin-bottom: 10%;}
+    section.contectus .contectusInner .left h2 {width: 100%; margin-bottom: 15px;}
+    section.contectus .contectusInner .left .subTxt {width: 100%; color: #555; font-size: 18px; font-weight: normal; margin-bottom: 40px;}
+    section.contectus .contectusInner .left a {display: inline-block; color: #666; transition: all 0.5s;}
+    /* right */
+    section.contectus .contectusInner .right {width: 70%; margin-top: 10%;}
+    section.contectus .contectusInner .right p {width: 100%; font-size: 50px;}
+/* hover */
+section.contectus .contectusInner .left a:hover, section.contectus .contectusInner .left a:focus {color: #d37348; font-weight: bold;}
+/* animation */
+section.contectus .contectusInner .left.motion {animation-name: titUp; animation-duration: 1.4s;}
+
+
+
+/* arrowsTop */
+a.arrowsTop {display: inline-block; margin-right: 30px; position: absolute; right: 30px; bottom: 50px; text-align: center; font-size: 60px; line-height: 1; color: #222;}
+/* hover */
+a.arrowsTop::before {position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: #222; content: 'TOP'; width: 40px; height: 40px; line-height: 40px; font-size: 16px; color: #fff; border-radius: 50%; opacity: 0; transition: all 0.3s;}
+a.arrowsTop:hover::before, a.arrowsTop:focus::before {opacity: 1;}
+
+
+
+
+/* footer */
+footer {width: 100%; height: 300px; background: #222; color: rgb(255, 255, 255, 0.4); font-size: 15px; font-weight: normal;}
+.footerInner {width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; padding: 50px 0 30px 0;}
+    /* left */
+    .footerInner .left {width: 55%;}
+    .footerInner .left ul {width: 100%;}
+    .footerInner .left ul.top {display: flex; justify-content: space-between; margin-bottom: 30px;}
+    .footerInner .left ul.top li.logo a img {transition: all 0.3s; filter: grayscale(100%);}
+    .footerInner .left ul.top li.top1 {padding-top: 5px;}
+    .footerInner .left ul.top li a {display: inline-block; font-weight: 600; transition: all 0.3s;}
+    .footerInner .left ul.middle {line-height: 1.2; margin-bottom: 30px; font-size: 14px;}
+    .footerInner .left ul.bottom {border-top: 1px solid; padding-top: 15px;}
+    /* right */
+    .footerInner .right {width: auto; padding-top: 5px;}
+    .footerInner .right a {display: inline-block; font-weight: 600; transition: all 0.3s;}
+/* hover */
+footer .footerInner a:hover, footer .footerInner a:focus {color: #d37348; text-decoration: underline;}
+.footerInner .left ul.top li.logo:hover img, .footerInner .left ul.top li.logo:focus a img {filter: grayscale(0%);}
+/* animation */
+@keyframes footerUp {
+    0% {transform: translateY(100px);}
+}
+footer.motion {animation-name: footerUp; animation-duration: 0.7s;}
