@@ -1,0 +1,968 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+/* reset */
+body {margin: 0;}
+h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, table {margin: 0; padding: 0;}
+header, main, footer, section, article, aside, nav {display: block;}
+a {color: inherit; text-decoration: inherit;}
+a img {border: none;}
+img {vertical-align: middle; max-width: 100%;}
+li {list-style: none;}
+h1 {line-height: 1;}
+p.txt {line-height: 1.6;}
+
+
+/* layout */
+.wrap {background: #000; color: #fff; font-family: 'Noto Sans KR', sans-serif;}
+/* font
+font-family: 'Manrope', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
+*/
+
+
+
+
+/* ---------------------header--------------------- */
+header {width: 100%; height: 80px; line-height: 80px; position: fixed; top: 0; left: 0; background: #0b0b0b; z-index: 200;}
+header .innerHeader {width: 100%; height: 100%; padding: 21px 0 20px; box-sizing: border-box; line-height: 100%; position: relative;}
+header .innerHeader .logo {display: inline-block; margin: 0 1.7187vw 0 3.6458vw;}
+header .innerHeader .logo a {display: block; width: 100%;}
+header .innerHeader .logo a img {display: block; width: 100%;}
+header .innerHeader h2 {display: inline-block; padding-left: 1.5625vw; margin-left: -5px; vertical-align: top; position: relative;}
+header .innerHeader h2 a {display: block; width: 100%;}
+header .innerHeader h2 a img {display: block; width: 100%;}
+header .innerHeader > h2::before {content: ''; position: absolute; width: 1px; height: 37px; background: rgba(255, 255, 255, 0.2); left: 0; top: 0; vertical-align: middle;}
+header .innerHeader .rightBox {float: right; margin-right: 140px;}
+header .innerHeader .rightBox .gnb {float: left; padding-top: 11px; padding-bottom: 10px;}
+header .innerHeader .rightBox .gnb a {display: inline-block; margin-right: 1.56vw; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: bold; color: rgba(255, 255, 255, 0.7)}
+header .innerHeader .rightBox .icon {float: left; display: block; width: 23px; height: 23px; margin-right: 1.56vw; padding-top: 10px; cursor: pointer;}
+header .innerHeader .rightBox .icon img {display: block; width: 100%; height: 100%;}
+    /* .gnb a 호버 */
+    header .innerHeader .rightBox .gnb a:hover, header .innerHeader .rightBox .gnb a:focus {color: rgba(255, 255, 255, 1);}
+
+/* 스크롤 다운 시 센터박스 등장 */
+header.on .innerHeader .centerBox {opacity: 1;}
+header .innerHeader .centerBox {width: 25%; height: 100%; line-height: 80px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); display: flex; justify-content: space-around; opacity: 0; transition: opacity 0.3s ease;}
+header .innerHeader .centerBox li {width: 30%;}
+header .innerHeader .centerBox li a {display: inline-block; width: 100%; font-size: 15px; text-align: center; color: rgba(255, 255, 255, 0.4); font-weight: 800; font-family: 'Manrope', sans-serif;}
+header .innerHeader .centerBox li:nth-child(2) a {color: rgba(255, 255, 255, 1); }
+header .innerHeader .centerBox li:nth-child(2) {position: relative;}
+header .innerHeader .centerBox li:nth-child(2)::before {position: absolute; top: 50%; transform: translateY(-50%); left: -10%; content: '<'; font-family: 'Manrope', sans-serif; font-size: 40px; font-weight: 200; color: rgba(255, 255, 255, 0.7); cursor: pointer;}
+header .innerHeader .centerBox li:nth-child(2)::after {position: absolute; top: 50%; transform: translateY(-50%); right: -10%; content: '>'; font-family: 'Manrope', sans-serif; font-size: 40px; font-weight: 200; color: rgba(255, 255, 255, 0.7); cursor: pointer;}
+
+
+/* 모바일용 집모양 버튼 */
+header .innerHeader .mo {display: none;}
+
+
+/* 돋보기아이콘 클릭 시 검색창 오픈 */
+.searchOpen {width: 26px; height: 21px; display: block; position: absolute; right: 110px; top: 30px; font-size: 30px; cursor: pointer; margin-right: 0;}
+.search {width: 100%; height: 0; background: rgba(0,0,0,0.98); position: absolute; top: 0; left: 0; opacity: 0; font-family: 'Noto Sans KR', sans-serif;}
+.search.on {height: 100vh; opacity: 1; transition: all 0.5s;}
+.search .inner {width: 1400px; position: absolute; top: 40%; left: 50%; transform: translateX(-50%); text-align: center;}
+.search .inner {height: 0; z-index: -1;}
+.search .inner form, .search .inner h2 {display: none;}
+.search.on .inner{height: 1; z-index: 1;}
+.search.on .inner form, .search.on .inner h2 {display: block;}
+.search .inner h2 {font-size: 30px; margin-bottom: 80px;}
+.search .inner form {position: relative;}
+.search .inner form input {font-size: 46px; width: 55%; text-align: left; background: none; border: none; border-bottom: 5px solid #fff; padding-bottom: 10px; padding-left: 30px; box-sizing: border-box; font-weight: 600; color: rgba(255, 255, 255, 0.4); }
+.search .inner form .searchOpen {position: absolute; top: 8px; right: 25%; display: block; width: 40px; height: 40px;}
+.search .inner form .searchOpen img {display: block; width: 100%; height: 100%;}
+.search .inner .tag {width: 400px; margin: 50px auto 0; display: flex; justify-content: space-between;}
+.search .inner .tag span {display: block; background: #0b0b0b; padding: 5px 12px; border-radius: 15px; font-size: 14px; color: rgba(255, 255, 255, 0.2); font-weight: 200;}
+.search .close {display: block; width: 60px; height: 60px; position: absolute; left: 50%; bottom: 12%;}
+.search .close span {display: block; width: 100%; height: 100%; font-size: 60px; text-align: center; font-weight: 900;}
+
+
+/* 메뉴아이콘 클릭 시 세부메뉴 오픈 */
+.menuOpen {width: 26px; height: 21px; display: block; position: absolute; right: 60px; top: 30px; font-size: 30px; cursor: pointer; margin-right: 0;}
+.gnb2 {width: 100%; height: 0; background: rgba(0,0,0,0.98); position: absolute; top: 80px; left: 0; opacity: 0;}
+.gnb2.on {height: 100vh; opacity: 1; transition: all 0.5s;}
+.gnb2::before {content: ''; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: 1px; background: rgba(255, 255, 255, 0.3);}
+.gnb2 .close {display: none;}
+.gnb2.on .close {display: block; position: absolute; top: -55px; right: 55px; background: #0b0b0b;}
+.gnb2.on .close span {font-size: 34px; font-weight: 900;}
+/* 매뉴 타이틀 */
+
+.gnb2 > ul {display: none;}
+.gnb2.on > ul {width: 97%; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; justify-content: space-around;}
+.gnb2 > ul > li {width: 20vw; height: 600px; position: relative;}
+.gnb2 > ul > li > a {display: block; width: 100%; height: 100%; overflow: hidden; position: relative;}
+/* txtImg */
+.gnb2 > ul > li > a > .txtImg {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.gnb2 > ul > li > a > .txtImg2 {opacity: 0; transition: all 0.2s;}
+/* bgImg */
+.gnb2 > ul > li .bg {position: absolute; left: 0; top: 0; z-index: -1;}
+.gnb2 > ul > li:nth-child(1) .bg {width: 100%; height: 600px; background: url(../img/pop_menu_bg1.jpg) center/cover no-repeat; opacity: 0; transition: opacity 0.8s;}
+.gnb2 > ul > li:nth-child(2) .bg {width: 100%; height: 600px; background: url(../img/pop_menu_bg2.jpg) center/cover no-repeat; opacity: 0; transition: opacity 0.8s;}
+.gnb2 > ul > li:nth-child(3) .bg {width: 100%; height: 600px; background: url(../img/pop_menu_bg3.jpg) center/cover no-repeat; opacity: 0; transition: opacity 0.8s;}
+.gnb2 > ul > li:nth-child(4) .bg {width: 100%; height: 600px; background: url(../img/pop_menu_bg4.jpg) center/cover no-repeat; opacity: 0; transition: opacity 0.8s;}
+.gnb2 > ul > li:nth-child(5) .bg {width: 100%; height: 600px; background: url(../img/pop_menu_bg5.jpg) center/cover no-repeat; opacity: 0; transition: opacity 0.8s;}
+    /* 호버 */
+    .gnb2 > ul > li:hover .bg, .gnb2 > ul > li:focus .bg {opacity: 1;}
+/* 메뉴의 이너메뉴 */
+.gnb2 ul.inner {position: absolute; top: 60%; left: 20%; opacity: 0; line-height: 0; transition: all 0.3s;}
+.gnb2 ul.inner li {width: 100%; height: 100%; margin-bottom: 15px; position: relative;}
+.gnb2 ul.inner li a {display: block; width: 100%; height: 100%; font-size: 18px; color: #fff; font-family: 'Manrope', sans-serif; font-weight: 300;}
+    /* 호버 시 텍스트이미지2변경, 이너메뉴 등장 */
+    .gnb2 > ul > li:hover .txtImg2, .gnb2 > ul > li:focus .txtImg2, .gnb2 > ul > li:hover ul.inner, .gnb2 .gnb2 > ul > li:focus ul.inner {opacity: 1; line-height: 1;}
+    /* 이너메뉴 텍스트 호버 시 색상 변경 */
+    .gnb2 > ul > li .inner li a:hover, .gnb2 > ul > li .inner li a:focus {color: #e21a22; transition: all 0.2s;}
+    /* 이너메뉴 텍스트 호버 시 서브 텍스트 등장 */
+    .gnb2 ul.inner li a.hoverTxt {position: absolute; top: 0; left: 130%; width: 330px; font-size: 16px; opacity: 0; transition: all 0.2s;}
+    .gnb2 ul.inner li a.hover:hover ~ .hoverTxt {opacity: 0.5;}
+
+
+
+
+/* ---------------------section.visual--------------------- */
+.visual {width: 100%; height: 100vh; position: relative; overflow: hidden;}
+.visual .img1 {width: 100%; height: 100vh; background: url(../img/20200703135504079138.png) no-repeat center/cover; z-index: -1; opacity: 0; position: absolute; top: 0; left: 0;}
+.visual .img2 {width: 100%; height: 100vh; background: url(../img/20200703135504057137.jpg) no-repeat center/cover; z-index: -1; opacity: 0; position: absolute; top: 0; left: 0;}
+.visual .img2::before {position: absolute; top: 500px; right: 460px; content: ''; width: 250px; height: 250px; border: 2px solid #fff; opacity: 0;}
+.visual .img3 {width: 58%; height: 613.41px; box-sizing: border-box; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -44%); background: url(../img/20200703135504037136.jpg) no-repeat center/cover;}
+
+/* 비쥬얼 이미지 애니메이션 */
+@keyframes imgOpc1 {
+    0% {opacity: 1; z-index: 1;}
+    100% {opacity: 1; z-index: 1;}
+}
+.visual .img1 {animation-name: imgOpc1; animation-duration: 0.8s;}
+
+@keyframes imgOpc2 {
+    0% {opacity: 0; z-index: 1;}
+    10% {opacity: 1; z-index: 1;}
+    100% {opacity: 1; z-index: 1;}
+}
+.visual .img2 {animation-name: imgOpc2; animation-duration: 1.1s; animation-delay: 0.6s;}
+
+@keyframes square {
+    0% {transform: scale(150%); z-index: 1;}
+    90% {transform: scale(100%); opacity: 1; z-index: 1;}
+    100% {opacity: 0; z-index: 1;}
+}
+.visual .img2::before {animation-name: square; animation-duration: 1s; animation-delay: 0.7s;}
+
+@keyframes imgSize {
+    0% {width: 100%; height: 100vh; transform: translate(-50%, -50%) rotate(0deg);}
+    30% {width: 100%; height: 100vh; transform: translate(-50%, -50%) rotate(0deg);}
+    65% {width: 58%; height: 613.41px; transform: translate(-50%, -50%) rotate(-5deg);}
+}
+.visual .img3 {animation-name: imgSize; animation-duration: 2s; animation-delay: 1s;}
+
+
+    /* 텍스트 박스 */
+    .visual .txtBox {position: absolute; top: 34%; left: 16.61%;}
+    .visual .txtBox .tit {font-size: 6.25vw; font-family: 'Manrope', sans-serif; margin-bottom: 1.2vw;}
+    .visual .txtBox .txt {font-size: 1.25vw; font-weight: 300; opacity: 0.9; margin-bottom: 3.4vw;}
+    .visual .txtBox button {display: inline-block; width: 260px; height: 54px; line-height: 54px; border: 1px solid #fff; box-sizing: border-box; color: #fff; font-size: 14px; text-align: center; background: none; font-family: 'Manrope', sans-serif; font-weight: 800; opacity: 0.9; transition: all 0.2s ease-in; cursor: pointer; z-index: 999;}
+        /* 텍스트박스 버튼 호버 */
+        .visual .txtBox button:hover, .visual .txtBox button:focus {background: #e21a22; border: 1px solid #e21a22; z-index: 999;}
+
+    /* 좌우 이동버튼 */
+    .visual .btn {position: absolute; top: 50%; transform: translateY(-50%); font-size: 24px; font-family: 'Manrope', sans-serif; cursor: pointer; font-weight: 800; color: #fff; background: none; border: none;}
+    .visual .btn.left {left: 0; padding-left: 98px;}
+    /* left 라인_가상선택자 */
+    .visual .btn.left::before {content: ""; display: inline-block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 80px; height: 2px; background: #fff; margin-top: 0.5px; opacity: 0.4; transition: all 0.3s ease;}
+    .visual .btn.left::after {content: ""; display: inline-block; position: absolute; top: 50%; right: 93px; transform: translateY(-50%) rotate(180deg); width: 0; height: 2px; background: #fff; margin-top: 0.5px; opacity: 0; transition: width 0.4s ease; transition-delay: 0.3s;}
+    /* right 라인_가상선택자 */
+    .visual .btn.right {right: 0; padding-right: 98px;}
+    .visual .btn.right::before {content: ""; display: inline-block; position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 80px; height: 1.5px; background: #fff; margin-top: 0.5px; opacity: 0.7; transition: all 0.3s ease;}
+    .visual .btn.right::after {content: ""; display: inline-block; position: absolute; top: 50%; left:151px; transform: translateY(-50%); width: 0px; height: 2px; background: #fff; margin-top: 0.5px; opacity: 0; transition: width 0.4s ease; transition-delay: 0.3s;}
+        /* 양 옆 라인 호버 */
+        .visual .btn.left:hover::before, .visual .btn.right:hover::before, .visual .btn.left:focus::before, .visual .btn.right:focus::before {width: 0;}
+        .visual .btn.left:hover::after, .visual .btn.right:hover::after, .visual .btn.left:focus::after, .visual .btn.right:focus::after {width: 80px; opacity: 0.4;}
+
+    /* scrollDown */
+    .visual .scrollDown {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-family: 'Manrope', sans-serif; font-size: 14px; line-height: 28px; letter-spacing: 0.25px; width: 120px; height: 84px; background: none; cursor: pointer; border:none;}
+    .visual .scrollDown .scroll_txt {overflow: hidden; width: 100%; height: 20px; position: absolute; top: 0; left: 0;}
+    .visual .scrollDown .scroll_txt span {position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: scrolldown_txt 2.3s infinite 1.6s ease-in-out backwards; color: #fff; opacity: 0.4; font-weight: 800;}
+    @keyframes scrolldown_txt {
+        0% {transform: translateY(-20px);}
+        30% {transform: translateY(0px);}
+        75% {transform: translateY(0px);}
+        100% {transform: translateY(15px);}
+    }
+    .visual .scrollDown .scroll_bar {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 52px; overflow: hidden;}
+    .visual .scrollDown .scroll_bar .bar {display: block; position: absolute; top: 0; left: 50%; transform: translateX(-50%); max-width: 1px; height: 0; background: #fff;  opacity: 0.4; animation: scrollDown_bar 2.3s infinite 1.6s ease-in-out backwards;}
+    @keyframes scrollDown_bar {
+        0% {height: 0; transform: translateY(0);}
+        50% {height: 100%; transform: translateY(0);}
+        100% {transform: translateY(100px);}
+    }
+
+    /* 비쥬얼 텍스트, 좌우 텍스트 애니메이션 */
+    @keyframes txtUp {
+        0% {transform: translateY(70px); opacity: 0;}
+    }
+    .visual .txtBox.motion .tit {animation-name: txtUp; animation-duration: 1.6s; animation-delay: 1.4s;}
+    .visual .txtBox.motion .txt {animation-name: txtUp; animation-duration: 1.4s; animation-delay: 1.6s;}
+    .visual .txtBox.motion button {animation-name: txtUp; animation-duration: 1.4s; animation-delay: 1.6s;}
+
+    @keyframes txtLeft {
+        0% {left: -150px; opacity: 0;}
+    }
+    .visual .btn.left.motion {animation-name: txtLeft; animation-duration: 1s; animation-delay: 1.8s;}
+
+    @keyframes txtRight {
+        0% {right: -150px; opacity: 0;}
+    }
+    .visual .btn.right.motion {animation-name: txtRight; animation-duration: 1s; animation-delay: 1.8s;}
+
+
+
+
+/* ---------------------section.rSeries--------------------- */
+.rSeries {width: 100%; position: relative; margin-top: 300px;}
+.rSeries .bg {width: 100%; height: 181px; background: url(../img/sec1_bg_bg.jpg) no-repeat center; position: sticky; position: -webkit-sticky; top: 461.429px;}
+.rSeries > .txt {width: 100%; font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 100; text-align: center; margin-bottom: 200px; position: relative; transform: translateY(-110px);}
+
+    /* ----------autoSlide---------- */
+    /* 공통 */
+    .rSeries .autoSlide {width: 100%; position: relative;}
+    .rSeries .autoSlide .pageNum {font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 8px; color: #d5d5d5;}
+    .rSeries .autoSlide .pageNum span {font-size: 24px; color: #fff; font-weight: 600;}
+    /* 공통 arrows */
+    .rSeries .autoSlide .slick-arrow {position: absolute; top: 44%; z-index: 1; text-indent: -9999px; background: none; border: none; color: rgb(255, 255, 255, 0.2); cursor: pointer;}
+    .rSeries .autoSlide .slick-prev {left: 150px;}
+    .rSeries .autoSlide .slick-next {right: 150px;}
+    .rSeries .autoSlide .slick-prev::before {position: absolute; top: 0; left: 0; content: '\2329'; text-indent: 0; font-size: 100px; font-weight: 900; transition: all 0.5s;}
+    .rSeries .autoSlide .slick-next::before {position: absolute;  top: 0; right: 0; content: '\232A'; text-indent: 0; font-size: 100px; font-weight: 900; transition: all 0.5s;}
+        /* arrows 호버 */
+        .rSeries .autoSlide .slick-arrow:hover::before, .rSeries .autoSlide .slick-arrow:focus::before {color: rgb(255, 255, 255, 1);}
+
+    /* 슬라이드1 */
+    .rSeries .autoSlide .slide1 {width: 100%; height: 116vh; position: relative;}
+    .rSeries .autoSlide .slide1 .txtBox {width: 100%; padding-left: 16.61%; padding-top: 80px; box-sizing: border-box;}
+    .rSeries .autoSlide .slide1 .txtBox .tit {font-family: 'Manrope', sans-serif; font-size: 120px; margin-bottom: 19px; color: #fff;}
+    .rSeries .autoSlide .slide1 .txtBox .txt {font-family: 'Noto Sans KR', sans-serif; font-size: 20px; margin-bottom: 100px; color: #fff; font-weight: 200; opacity: 0.9;}
+    .rSeries .autoSlide .slide1 .txtBox .txt br.mo {display: none;}
+    .rSeries .autoSlide .slide1 .topImg {display: block; width: 1,646.281px; position: absolute; z-index: -1; top: 0; right: 0;}
+    .rSeries .autoSlide .slide1 .topImgMo {display: none;}
+    .rSeries .autoSlide .slide1 .bottomImg {display: block; position: absolute; z-index: -1; left: 16.61%; bottom: 0;}
+    .rSeries .autoSlide .slide1 .bottomImgMo {display: none;}
+    .rSeries .autoSlide .slide1 .subTxt {font-family: 'Noto Sans KR', sans-serif; font-size: 20px; color: #fff; font-weight: 200; opacity: 0.8; position: absolute; left: 732px; bottom: 142px; line-height: 1.7;}
+    .rSeries .autoSlide .slide1 .subTxt br.mo {display: none;}
+
+    /* 슬라이드 2,3 */
+    .rSeries .autoSlide .slideEOS {width: 100%; position: relative;}
+    .rSeries .autoSlide .slideEOS a {display: block; width: 100%;}
+    .rSeries .autoSlide .slideEOS a.mo {display: none;}
+    .rSeries .autoSlide .slideEOS a img {width: 100%;}
+    .rSeries .autoSlide .slideEOS .pageNum {position: absolute; top: 80px; left: 16.61%;}
+
+    /* 애니메이션 */
+    @keyframes transY {
+        0% {opacity: 0; transform: translateY(70px);}
+    }
+    .rSeries .autoSlide .slide1 .txtBox .tit.motion {animation-name: transY; animation-duration: 0.8s;}
+    .rSeries .autoSlide .slide1 .txtBox .txt.motion {animation-name: transY; animation-duration: 0.8s;}
+    .rSeries .autoSlide .slide1 .topImg.motion {animation-name: transY; animation-duration: 0.8s;}
+    .rSeries .autoSlide .slide1 .bottomImg.motion {animation-name: transY; animation-duration: 1.2s;}
+    .rSeries .autoSlide .slide1 .subTxt.motion {animation-name: transY; animation-duration: 2.1s;}
+
+
+
+
+    /* ----------.tab---------- */
+    .tab {width: 100%; margin-top: 250px; position: relative; overflow: hidden; padding-top: 70px;}
+    .tab .tabSlide {width: 1280px; margin: 0 auto;}
+    .tab .slick-slide {height: 100vh;}
+
+    /* 제품명 버튼 */
+    .tab .slick-dots {width: 1280px; float: left; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+    .tab .slick-dots li {width: 20%; position: absolute;}
+    .tab .slick-dots li button {display: block; width: 100%; height: 56px; border: none; background-color: transparent; position: relative; color: transparent;}
+    .tab .slick-dots li button::before {width: 100%; height: 100%; content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); color: #d5d5d5; font-family: 'Manrope', sans-serif; font-size: 56px; font-weight: 800; line-height: 1; transition: color 0.5s; cursor: pointer;}
+
+    /* 가상선택자로 버튼에 제품명 넣기 */
+    .tab .slick-dots li:nth-child(1) button::before {content: 'EOS R5';}
+    .tab .slick-dots li:nth-child(2) button::before {content: 'EOS R6';}
+    .tab .slick-dots li:nth-child(3) button::before {content: 'EOS Ra';}
+    .tab .slick-dots li:nth-child(4) button::before {content: 'EOS R';}
+    .tab .slick-dots li:nth-child(5) button::before {content: 'EOS RP';}
+    .tab .slick-dots li.slick-active button::before {color: #fff;}
+    /* 버튼위치 순서 변경 : 4,5,1,2,3 */
+    .tab .slick-dots li:nth-child(1) {position: absolute; left: 50%; transform: translateX(-50%);}
+    .tab .slick-dots li:nth-child(2) {position: absolute; right: 20%;}
+    .tab .slick-dots li:nth-child(3) {position: absolute; right: 0;}
+    .tab .slick-dots li:nth-child(4) {position: absolute; left: 0;}
+    .tab .slick-dots li:nth-child(5) {position: absolute; left: 20%;}
+
+    /* 버튼 상단 빨간 막대 */
+    .tab .slick-dots li::after {width: 5px; height: 0; border-radius: 30px; content: ''; position: absolute; top: -50px; left: 50%; transform: translateX(-50%); background: #e21a22; transition: all 0.3s ease;}
+    .tab .slick-dots li.slick-active::after {height: 35px; transition: all 0.3s ease-in-out;}
+
+    /* 탑이미지 */
+    .tab .tabSlide p.img {width: 100%; height: 640px; overflow: hidden; position: relative; margin-top: 120px; background: #000;}
+    .tab .tabSlide p.img img {width: 100%; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(1.1); transition: all 0.5s ease;}
+    .tab .tabSlide p.img .topImgMo {display: none;}
+        /* 탑이미지 애니메이션 */
+        .tab .slick-active p.img .topImg {transform: translate(-50%,-50%) scale(1); transition: all 0.5s ease-in-out;}
+
+    /* 바텀이미지 */
+    .tab .tabSlide .bottomBox {width: 100%; margin: 0 auto; transform: translateY(-340px); position: relative;}
+    .tab .tabSlide .bottomBox .bottomImg {margin: 0 auto; transform: translateY(80px); opacity: 0; transition: all 0.7s ease;}
+        /* 바텀이미지 애니메이션 */
+        .tab .slick-active .bottomBox .bottomImg {margin: 0 auto; transform: translateY(0); opacity: 1; transition: transform 0.7s ease-in-out, opacity 0.5s ease-out;}
+    .tab .tabSlide .bottomBox .txt {position: absolute; left: 950px; top: 60%; font-family: 'Noto Sans KR', sans-serif; font-size: 20px; color: rgb(213, 213, 213, 0.9); font-weight: 300;}
+    
+    /* 하단 공통_more 버튼 */
+    .tab .btn {width: 100%; height: 280px; background: #000;}
+    .tab .btn button {display: block; width: 260px; height: 54px; line-height: 54px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);  font-family: 'Manrope', sans-serif; font-size: 14px; text-align: center; color: #fff; background: #000; border: 1px solid #fff; box-sizing: border-box; font-weight: 800; opacity: 0.9; transition: all 0.2s ease-in; cursor: pointer;}
+        /* 하단 공통_more 버튼 호버 */
+        .tab button:hover, .tab button:focus {background: #e21a22; border: 1px solid #e21a22;}
+
+    /* tab. 애니메이션 */
+    @keyframes imgScale {
+        0% {transform: scale(170%);}
+        40% {transform: scale(170%);}
+    }
+    .tab.motion .tabSlide {animation-name: imgScale; animation-duration: 2.1s;}
+
+    @keyframes listTop {
+        0% {opacity: 0; top: 70px;}
+        70% {opacity: 0; top: 70px;}
+    }
+    .tab.motion .slick-dots {animation-name: listTop; animation-duration: 2.4s;}
+
+    @keyframes bottomTransY {
+        0% {opacity: 0; transform: translateY(70px);}
+        70% {opacity: 0; transform: translateY(70px);}
+    }
+    .tab.motion .tabSlide .bottomBox .bottomImg {animation-name: bottomTransY; animation-duration: 1.9s;}
+    .tab.motion .tabSlide .bottomBox .txt {animation-name: bottomTransY; animation-duration: 2.4s;}
+
+
+
+
+
+/* ---------------------rfLens--------------------- */
+.rfLens {width: 100%; position: relative; margin-top: 400px;}
+.rfLens .bg {width: 100%; height: 181px; background: url(../img/sec3_bg_bg.jpg) no-repeat center; position: sticky; position: -webkit-sticky; top: 461.429px;}
+.rfLens > .txt {width: 100%; font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 100; text-align: center; margin-bottom: 200px; position: relative; transform: translateY(-110px);}
+
+/* rfLens .tabSlide */
+.rfLens .tabSlide {width: 100%;}
+.rfLens .tabSlide .slideInner {width: 100%; position: relative;}
+.rfLens .tabSlide .slideInner img {margin: 0 auto; opacity: 0.4;}
+.rfLens .tabSlide .slideInner.slick-active img {opacity: 1;}
+
+/* 텍스트박스 */
+.rfLens .txtBox {width: 788px; position: absolute; z-index: 1; top: 50px; left: 0; opacity: 0; transition: all 0.5s ease;}
+.rfLens .txtBox .pageNum{font-family: 'Manrope', sans-serif; font-size: 18px; color: #d5d5d5; margin-bottom: 10px;}
+.rfLens .txtBox .pageNum span {font-size: 24px; color: #fff; font-weight: 600;}
+.rfLens .txtBox .bar1 {display: block; width: 40%; height: 1px; background: #333; margin-bottom: 70px;}
+.rfLens .txtBox .bar2 {display: block; width: 25%; height: 3px; background: #e21a22;}
+.rfLens .slide2 .txtBox .bar2 {width: 50%;}
+.rfLens .slide3 .txtBox .bar2 {width: 75%;}
+.rfLens .slide4 .txtBox .bar2 {width: 100%;}
+
+.rfLens .txtBox .tit {font-size: 100px; font-family: 'Manrope', sans-serif; margin-bottom: 22px; transform: translateY(30px);}
+.rfLens .txtBox .tit span {color: #e21a22;}
+.rfLens .txtBox .txt {font-size: 20px; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; margin-bottom: 40px; transform: translateY(30px);}
+.rfLens .txtBox .viewMore {font-size: 14px; font-family: 'Noto Sans KR', sans-serif; border: none; background: none; color: #fff; cursor: pointer; transition: color 0.1s; transform: translateY(30px);}
+    /* viewmore 호버 */
+    .rfLens .txtBox .viewMore:hover, .rfLens .txtBox .viewMore:focus {color: #e21a22; transition: color 0.1s;}
+    /* 슬라이드 엑티브 될 때 텍스트박스 등장 & 텍스트 상승 애니메이션 */
+    .rfLens .tabSlide .slideInner.slick-active .txtBox {opacity: 1; transition: all 0.5s ease-in-out;}
+    .rfLens .tabSlide .slideInner.slick-active .txtBox .tit {transform: translateY(0); transition: all 0.5s; transition-delay: 0.2s;}
+    .rfLens .tabSlide .slideInner.slick-active .txtBox .txt {transform: translateY(0); transition: all 0.8s; transition-delay: 0.2s;}
+    .rfLens .tabSlide .slideInner.slick-active .txtBox .viewMore {transform: translateY(0); transition: all 0.8s; transition-delay: 0.2s;}
+
+/* 하단 공통_more 버튼 */
+.rfLens .btn {width: 100%; background: #000; height: 450px; position: relative;}
+.rfLens .btn button {display: block; width: 260px; height: 54px; line-height: 54px; position: absolute; left: 50%; bottom: 50%; transform: translate(-50%,-50%);  font-family: 'Manrope', sans-serif; font-size: 14px; text-align: center; color: #fff; background: #000; border: 1px solid #fff; box-sizing: border-box; font-weight: 800; opacity: 0.9; transition: all 0.2s ease-in; cursor: pointer;}
+    /* 하단 공통_more 버튼 호버 */
+    .rfLens button:hover, .rfLens button:focus {background: #e21a22; border: 1px solid #e21a22;}
+
+/* 공통 arrows */
+.rfLens .tabSlide .slick-arrow {position: absolute; top: 44%; z-index: 200; text-indent: -9999px; background: none; border: none; color: rgb(255, 255, 255, 0.2); cursor: pointer;}
+.rfLens .tabSlide .slick-prev {left: 15%; display: block;}
+.rfLens .tabSlide .slick-next {right: 15%;}
+.rfLens .tabSlide .slick-prev::before {position: absolute; top: 0; left: 0; content: '\2329'; text-indent: 0; font-size: 100px; font-weight: 900; transition: all 0.5s; z-index: 1;}
+.rfLens .tabSlide .slick-next::before {position: absolute;  top: 0; right: 0; content: '\232A'; text-indent: 0; font-size: 100px; font-weight: 900; transition: all 0.5s; z-index: 1;}
+    /* arrows 호버 */
+    .rfLens .tabSlide .slick-arrow:hover::before, .rfLens .tabSlide .slick-arrow:focus::before {color: rgb(255, 255, 255, 1);}
+
+/* 스크롤 애니메이션 */
+@keyframes txtUp {
+    0% {transform: translateY(50px); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+.rfLens .txtBox .tit.motion {animation-name: txtUp; animation-duration: 0.5s;}
+.rfLens .txtBox .txt.motion {animation-name: txtUp; animation-duration: 0.5s; animation-delay: 0.2s;}
+.rfLens .txtBox .viewMore.motion {animation-name: txtUp; animation-duration: 0.5s; animation-delay: 0.2s;}
+
+
+
+
+/* ---------------------scrollSlide--------------------- */
+.scrollSlide {width: 100%; height: 100vh;}
+.scrollSlide .slide {width: 100%; height: 100%; position: relative;}
+.scrollSlide .slide1 {width: 100%; height: 100vh; background: url(../img/20200709183037434239.jpg) center/cover no-repeat;}
+.scrollSlide .slide2 {width: 100%; height: 100vh; background: url(../img/20200709183121026241.jpg) center/cover no-repeat;}
+.scrollSlide .slide .pageNum {font-family: 'Manrope', sans-serif; font-size: 18px; color: #d5d5d5; position: absolute; right: 50px; bottom: 50px;}
+.scrollSlide .slide .pageNum span {font-size: 24px; color: #fff; font-weight: 600;}
+.scrollSlide .slide .playBtn {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.scrollSlide .slide .playBtn a {display: block; width: 100%; height: 100%; position: relative;}
+.scrollSlide .slide .playBtn a .red {width: 79px; height: 91px; opacity: 0; transition: opacity 0.3s; position: absolute; top: 0; left: 0;}
+/* 플레이버튼 호버 */
+.scrollSlide .slide .playBtn:hover .white, .scrollSlide .slide .playBtn:focus .white {opacity: 0; transition: opacity 0.5s;}
+.scrollSlide .slide .playBtn:hover .red, .scrollSlide .slide .playBtn:focus .red {opacity: 1; transition: opacity 0.5s;}
+
+
+
+
+
+
+/* ---------------------section.magazine--------------------- */
+.magazine {width: 100%; background: #efefef; overflow: hidden;}
+.magazine .inner {width: 1280px; margin: 0 auto;}
+
+/* txtBox */
+.magazine .inner .txtBox {padding-top: 229px; margin-bottom: 316px;}
+.magazine .inner .txtBox .tit {font-size: 120px; font-family: 'Manrope', sans-serif; color: #181818; margin-bottom: 96px;}
+.magazine .inner .txtBox button  {display: block; width: 260px; height: 54px; line-height: 54px; font-family: 'Manrope', sans-serif; font-size: 14px; text-align: center; color: #181818; background: none; border: 1px solid #181818; box-sizing: border-box; font-weight: 600; transition: all 0.2s ease-in; cursor: pointer;}
+    /* 버튼 호버 */
+    .magazine .inner .txtBox button:hover, .magazine .inner .txtBox button:focus {background: #e21a22; border: 1px solid #e21a22; color: #fff; font-weight: 600;}
+
+/* imgBox */
+.magazine .inner .imgBox {width: 100%; display: flex; flex-wrap: wrap; height: 980px; flex-direction: row-reverse; padding-bottom: 389px;}
+.magazine .inner .imgBox li {width: 400px; height: 640px; margin-bottom: 48px; margin-right: 40px; position: relative; transition: all 0.5s ease;}
+.magazine .inner .imgBox li a {display: block; width: 100%; height: 100%; transition: all 0.3s ease;}
+.magazine .inner .imgBox li a img {display: block; width: 100%; height: 100%;}
+.magazine .inner .imgBox li.imgBox2 img {filter: brightness(0.8);}
+.magazine .inner .imgBox li.imgBox1, .magazine .inner .imgBox li.imgBox4 {transform: translateY(-517px); margin-right: 0; transition: all 0.3s ease;}
+.magazine .inner .imgBox li.imgBox2, .magazine .inner .imgBox li.imgBox5 {transform: translateY(-347px);}
+/* 이미지박스 내 서브텍스트박스_이미지박스li가 position: relative */
+.magazine .inner .imgBox li .subTxtBox {position: absolute; left: 45px; bottom: 40px;}
+.magazine .inner .imgBox li .subTxtBox .txt {font-size: 14px; color: #fff; font-family: 'Manrope', sans-serif; font-weight: 800; margin-bottom: 11px;}
+.magazine .inner .imgBox li .subTxtBox .subTit {font-size: 28px; color: #fff; font-family: 'Noto Sans KR', sans-serif; font-weight: 600; word-spacing: -3px;}
+
+/* 스크롤 애니메이션 */
+@keyframes imgbox14 {
+    0% {transform: translateY(-367px); opacity: 0;}
+    100% {transform: translateY(-517px); opacity: 1;}
+}
+.magazine .inner .imgBox li.imgBox1.motion, .magazine .inner .imgBox li.imgBox4.motion {animation-name: imgbox14; animation-duration: 0.7s;}
+@keyframes imgbox25 {
+    0% {transform: translateY(-197px); opacity: 0;}
+    100% {transform: translateY(-347px); opacity: 1;}
+}
+.magazine .inner .imgBox li.imgBox2.motion, .magazine .inner .imgBox li.imgBox5.motion {animation-name: imgbox25; animation-duration: 0.7s;}
+@keyframes imgbox3 {
+    0% {transform: translateY(150px); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+.magazine .inner .imgBox li.imgBox3.motion {animation-name: imgbox3; animation-duration: 0.7s;}
+
+/* hover 시 이미지박스 20px 위로 + 그림자 */
+.magazine .inner .imgBox li a:hover, .magazine .inner .imgBox li a:focus {transform: translateY(-20px); box-shadow:0 5px 20px rgba(0, 0, 0, 0.4); transition: all 0.3s ease-in-out;}
+
+
+
+
+/* ---------------------section.rEvent--------------------- */
+.rEvent {width: 100%; height: 100vh; background: #efefef; padding-bottom: 200px;}
+.rEvent .inner {width: 100%; height: 100%; overflow: hidden; position: relative;}
+.rEvent .inner .txtBox {width: 1280px; margin: 0 auto;}
+/* 왼쪽 타이틀, 버튼 */
+.rEvent .inner .txtBox .tit {padding-top: 100px; margin-bottom: 290px; font-family: 'Manrope', sans-serif; font-size: 120px; color: #181818; z-index: -1;}
+.rEvent .inner .txtBox button {display: block; width: 260px; height: 54px; line-height: 54px; font-family: 'Manrope', sans-serif; font-size: 14px; text-align: center; color: #181818; background: none; border: 1px solid #181818; box-sizing: border-box; font-weight: 600; transition: all 0.2s ease-in; cursor: pointer;}
+    /* 버튼 호버 */
+    .rEvent .inner .txtBox button:hover, .rEvent .inner .txtBox button:focus {background: #e21a22; border: 1px solid #e21a22; color: #fff; font-weight: 600;}
+
+/* 슬라이드 */
+.rEvent .inner .slide {width: 100%; position: absolute; top: 0; left: 51%;}
+.rEvent .inner .slide li {max-width: 690px; max-height: 800px; margin: 0 20px 70px; position: relative;}
+.rEvent .inner .slide li a {display: block; width: 100%; height: 100%;}
+.rEvent .inner .slide li a img {display: block; width: 100%; height: 100%;}
+/* 페이지넘버 */
+.rEvent .inner .slide li .pageNum {position: absolute; bottom: -70px; right: 70px; font-family: 'Manrope', sans-serif; font-size: 18px; color: #ccc;}
+.rEvent .inner .slide li .pageNum span {font-size: 24px; color: #181818; font-weight: 800;}
+
+/* 슬라이드 왼쪽 텍스트 */
+.rEvent .inner .slide .slick-dots {position: absolute; left: -51%; top: 30%; display: block; width: 100%;}
+.rEvent .inner .slide .slick-dots li {min-width: 1280px; margin: 0 auto; position: relative;}
+.rEvent .inner .slide .slick-dots li button {border: none; background: none; color: transparent; display: block; width: 1280px; height: 100%; position: absolute; top: 0 left 0;}
+    /* dot에 가상선택자로 텍스트 입력 */
+    .rEvent .inner .slide .slick-dots li button::before {content: ''; position: absolute; top: 0; left: 0; display: block; width: 100%; height: 100%; color: #181818; font-size: 48px; font-family: 'Noto Sans KR', sans-serif; font-weight: 400; text-align: left; opacity: 0; transform: translateY(50px);}
+    .rEvent .inner .slide .slick-dots li:nth-child(1) button::before {content: '19년 연속 1위! EOS RP\A 정품등록 이벤트'; white-space: pre;}
+    .rEvent .inner .slide .slick-dots li:nth-child(2) button::before {content: '나의 첫번째 풀프레임 미러리스,\A EOS RP'; white-space: pre;}
+    .rEvent .inner .slide .slick-dots li:nth-child(3) button::before {content: 'EOS R5 | EOS R6 | EOS-1D X\A Mark III 기능 향상 펌웨어\A 업데이트'; white-space: pre;}
+    /* 슬라이드 엑티브 될 때 해당 도트(텍스트) 등장 */
+    .rEvent .inner .slide .slick-dots li.slick-active button::before {opacity: 1; transform: translateY(0); transition: transform 0.6s, opacity 0.8s;}
+/* arrow */
+.rEvent .slick-arrow {position: absolute; bottom: 10px; left: 10px; z-index: 1; text-indent: -9999px; background: none; border: none; color: #191919; cursor: pointer;}
+.rEvent .slick-next {left: 70px;}
+.rEvent .slick-prev::before {position: absolute; top: 0; left: 0; content: '\f053';  font-family: 'fontAwesome'; text-indent: 0; font-size: 25px; font-weight: 00;}
+.rEvent .slick-next::before {position: absolute;  top: 0; right: 0; content: '\f054'; font-family: 'fontAwesome'; text-indent: 0; font-size: 25px;}
+    /* arrow 시작과 끝 색상 변경 */
+    .rEvent button.slick-disabled {color: #ccc;}
+
+
+
+
+/* ---------------------footer--------------------- */
+footer {background: #101010; width: 100%; padding: 119px 0 110px; position: relative;}
+footer .footerInner {max-width: 1440px; margin: 0 auto; font-family: 'Noto Sans KR', sans-serif;}
+/* logo */
+footer .footerInner .footerLogo {width: 97px; margin: 0 auto 26px;}
+footer .footerInner .footerLogo a {display: block; width: 100%; height: 100%;}
+footer .footerInner .footerLogo img {width: 100%; height: 100%;}
+/* policy */
+footer .footerInner .policy {width: 600px; margin: 0 auto 29px; display: flex; justify-content: space-between;}
+footer .footerInner .policy li {position: relative;}
+footer .footerInner .policy li a {display: block; width: 100%; font-size: 14px; color: #666; font-weight: 300;}
+footer .footerInner .policy li span {position: absolute; top: 0; right: -45px; color: #666; font-size: 14px;}
+/* sns */
+footer .footerInner .sns {width: 330px; margin: 0 auto 60px; display: flex; justify-content: space-between;}
+footer .footerInner .sns li {height: 21px; display: inline-block; margin: 0 20px; background: url(../img/icon_sns.png) no-repeat 0 0;}
+footer .footerInner .sns li.facebook {width: 11px; margin-left: 0;}
+footer .footerInner .sns li.youtube {width: 21px; background-position-x: -11px}
+footer .footerInner .sns li.instagram {width: 15px; background-position-x: -32px}
+footer .footerInner .sns li.blog {width: 17px; background-position-x: -47px}
+footer .footerInner .sns li.kakaostory {width: 10px; background-position-x: -64px}
+footer .footerInner .sns li.twitter {width: 16px; background-position-x: -75px; margin-right: 0;}
+footer .footerInner .sns li a {display: inline-block; width: 100%; height: 100%;}
+    /* 아이콘 호버 시 색상 밝아짐 */
+    footer .footerInner .sns li:hover, footer .footerInner .sns li:focus {background-position-y: -21px;}
+/* address */
+footer .footerInner address {width: 900px; margin: 0 auto 22px; text-align: center; font-style: normal;}
+footer .footerInner address span {display: inline-block; font-size: 14px; color: #2f2f2f; font-weight: 300; margin-right: 30px;}
+footer .footerInner address br.mo {display: none;}
+/* copyright */
+footer .footerInner .copyright {width: 900px; margin: 0 auto; text-align: center; font-size: 14px; color: #2f2f2f; font-weight: 600;}
+footer .footerInner .copyright br.mo {display: none;}
+/* arrowTop */
+footer .footerInner .arrowTop {width: 70px; height: 70px; position: absolute; top: 80px; right: 80px; cursor: pointer;}
+footer .footerInner .arrowTop a {display: block; width: 100%; height: 100%;}
+footer .footerInner .arrowTop img {width: 100%; height: 100%;}
+
+
+
+
+
+/* -----------------------------------resposive web----------------------------------- */
+/* ~ 1279 */
+@media screen and (max-width:1279px) {
+    .tab .tabSlide, .tab .slick-dots, .magazine .inner, .rEvent .inner .txtBox, .rEvent .inner .slide .slick-dots li, .rEvent .inner .slide .slick-dots li button {width: 100%; max-width: 1279px;}
+
+    header .innerHeader .centerBox {transform: translateX(-70%);}
+    header .innerHeader .centerBox li {width: 34%;}
+    .gnb2 > ul > li > a > .txtImg, .gnb2 > ul > li > a > .txtImg2 {height: 3.2vw;}
+
+    .rSeries > .txt {margin-bottom: 0;}
+    .rSeries .autoSlide {height: 100vh;}
+    .rSeries .autoSlide .slideEOS .pageNum {top: 5%;}
+    .rSeries .autoSlide .slide1 .txtBox {padding-top: 50px;}
+    .rSeries .autoSlide .slide1 .txtBox .tit {font-size: 87px;}
+    .rSeries .autoSlide .slide1 .bottomImg {width: 348px; bottom: 250px;}
+    .rSeries .autoSlide .slide1 .subTxt {left: 40%; bottom: 200px;}
+    
+    .tab {margin-top: 150px;}
+    .tab .tabSlide {padding-bottom: 80px;}
+    .tab .tabSlide .bottomBox .txt {left: 75%;}
+    .tab .btn {height: 180px;}
+    .tab .btn button {bottom: 0;}
+
+    .rfLens {margin-top: 300px;}
+    .rfLens .txtBox {left: -20px;}
+    .rfLens .tabSlide .slick-prev {left: 7%;}
+    .rfLens .tabSlide .slick-next {right: 7%;}
+    
+    .scrollSlide {height: 70vw;}
+    .scrollSlide .slide1, .scrollSlide .slide2 {height: 57vw;}
+
+    .magazine .inner {width: 872px; margin-bottom: 200px;}
+    .magazine .inner .txtBox {padding-top: 300px; margin-bottom: 0;}
+    .magazine .inner .txtBox .tit {font-size: 87px; margin-bottom: 50px; transform: translateY(-90px);}
+    .magazine .inner .txtBox button {transform: translateY(-100px);}
+    .magazine .inner .imgBox {height: 800px; padding-bottom: 0;}
+    .magazine .inner .imgBox li {width: 277px; height: 441px; margin-bottom: 25px; margin-right: 20px;}
+    .magazine .inner .imgBox li .subTxtBox {left: 30px; bottom: 30px;}
+    .magazine .inner .imgBox li .subTxtBox .txt {font-size: 12px;}
+    .magazine .inner .imgBox li .subTxtBox .subTit {font-size: 15px; width: 215px;}
+    .magazine .inner .imgBox li .subTxtBox .subTit br {display: none;}
+    .magazine .inner .imgBox li.imgBox1, .magazine .inner .imgBox li.imgBox4 {transform: translateY(-200px); margin-right: 0; transition: all 0.3s ease;}
+    .magazine .inner .imgBox li.imgBox2, .magazine .inner .imgBox li.imgBox5 {transform: translateY(-100px);}
+    /* 스크롤 애니메이션 */
+    @keyframes imgbox14 {
+        0% {transform: translateY(-150px); opacity: 0;}
+        100% {transform: translateY(-200px); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox1.motion, .magazine .inner .imgBox li.imgBox4.motion {animation-name: imgbox14; animation-duration: 0.7s;}
+    @keyframes imgbox25 {
+        0% {transform: translateY(-50px); opacity: 0;}
+        100% {transform: translateY(-100px); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox2.motion, .magazine .inner .imgBox li.imgBox5.motion {animation-name: imgbox25; animation-duration: 0.7s;}
+    @keyframes imgbox3 {
+        0% {transform: translateY(110px); opacity: 0;}
+        100% {transform: translateY(60px); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox3.motion {animation-name: imgbox3; animation-duration: 0.7s;}
+
+    .rEvent {height: 70vw; padding-bottom: 0;}
+    .rEvent .inner .txtBox {width: 100%; padding-left: 12vw;}
+    .rEvent .inner .txtBox .tit {font-size: 87px; margin-bottom: 240px;}
+    .rEvent .inner .slide .slick-dots {left: -39%; top: 215px;}
+    .rEvent .inner .slide .slick-dots li button::before {font-size: 2.8vw;}
+    .rEvent .inner .slide li {max-width: 38vw; max-height: 50vw;}
+    .rEvent .inner .slide li .pageNum {right: 30px; bottom: -6vw;}
+    .rEvent .inner .slide li.slide1 .pageNum {bottom: -10vw;}
+    .rEvent .slick-arrow {top: 52vw;}
+
+    footer .footerInner address {line-height: 1.1;}
+}
+
+
+/* ~ 1024 */
+@media screen and (max-width:1024px) {
+    header {height: 65px; line-height: 65px;} 
+    header .innerHeader .logo {margin: 0px 2.7187vw 0 3.6458vw;}
+    header .innerHeader .logo a {width: 59px;}
+    header .innerHeader h2 {width: 70px; padding-left: 2.45vw;}
+    header .innerHeader > h2::before {height: 20px;}
+    header .innerHeader .rightBox {display: none;}
+    header .innerHeader .mo {display: block; position: absolute; top: 20px; right: 120px; width: 21px; height: 21px; cursor: pointer;}
+    header .innerHeader .mo img { width: 100%;}
+    header.on .innerHeader .centerBox {display: none;}
+    header .icon {top: 20px; right: 30px;}
+    header .icon.searchOpen {right: 70px; width: 21px; height: 21px;}
+
+    .searchMenu {display: none;}
+    .gnb2.on .close {top: -50px; right: 25px;}
+    .gnb2 {top: 65px;}
+
+    .visual .txtBox {left: 8%;}
+    .visual .btn {bottom: 0; transform: translateY(330%); height: 100px; font-size: 15px;}
+    .visual .btn.left {padding-left: 40px;}
+    .visual .btn.right {padding-right: 40px;}
+    .visual .btn.left::after {right: 67px;}
+    .visual .btn.left::before {width: 25px;}
+    .visual .btn.right::after {left: 100px;}
+    .visual .btn.right::before {width: 25px;}
+    .visual .txtBox .tit {font-size: 45px; margin-bottom: 27px;}
+    .visual .txtBox .txt {font-size: 19px; margin-bottom: 50px;}
+    .visual .txtBox button {font-size: 12px; width: 150px; height: 40px; line-height: 40px;}
+    .visual .scrollDown {font-size: 12px;}
+    .visual .img3 {width: 74%;}
+    @keyframes imgSize {
+        0% {width: 100%; height: 100vh; transform: translate(-50%, -50%) rotate(0deg);}
+        30% {width: 100%; height: 100vh; transform: translate(-50%, -50%) rotate(0deg);}
+        65% {width: 74%; height: 613.41px; transform: translate(-50%, -50%) rotate(-5deg);}
+    }
+    .visual .img3 {animation-name: imgSize; animation-duration: 2s; animation-delay: 1s; background: url(../img/20200703135504095139.png) no-repeat center/cover; width: 74%; height: 613.41px; box-sizing: border-box; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -44%);}
+    .visual .img1 {background: url(../img/20200703135504146141.png) no-repeat center/cover; width: 100%; height: 100vh; z-index: -1; opacity: 0; position: absolute; top: 0; left: 0;}
+    .visual .img2 {background: url(../img/20200703135504125140.png) no-repeat center/cover; width: 100%; height: 100vh; z-index: -1; opacity: 0; position: absolute; top: 0; left: 0;}
+    .visual .img2::before {position: absolute; top: 50%; right: 10%; content: ''; width: 250px; height: 250px; border: 2px solid #fff; opacity: 0;}
+
+    .rSeries {margin-top: 100px;}
+    .rSeries .bg {background-size: 80vw;}
+    .rSeries > .txt {font-size: 15px; margin-bottom: 100px;}
+
+    .rSeries .autoSlide .slick-arrow {top: 35%;}
+    .rSeries .autoSlide .slick-arrow::before {font-size: 60px;}
+    .rSeries .autoSlide .slick-prev {left: 100px;}
+    .rSeries .autoSlide .slick-next {right: 100px;}
+    .rSeries .autoSlide .slide1 .txtBox {padding-top: 30px;}
+    .rSeries .autoSlide .slide1 .txtBox .tit {font-size: 64px;}
+    .rSeries .autoSlide .slide1 .txtBox .txt, .rSeries .autoSlide .slide1 .subTxt {font-size: 12px;}
+    .rSeries .autoSlide .pageNum span {font-size: 15px;}
+    .rSeries .autoSlide .pageNum {font-size: 12px;}
+    .rSeries .autoSlide .slide1 .bottomImg {width: 256px; bottom: 40%;}
+    .rSeries .autoSlide .slide1 .txtBox .txt br {display: none;}
+    .rSeries .autoSlide .slide1 .txtBox .txt br.mo {display: block;}
+    .rSeries .autoSlide .slide1 .subTxt {left: 40%; bottom: 42%;}
+    .rSeries .autoSlide .slide1 .subTxt br {display: none;}
+    .rSeries .autoSlide .slide1 .subTxt br.mo {display: block;}
+
+    .tab {margin-top: -180px; height: 82vh;}
+    .tab .slick-dots li button::before {font-size: 30px;}
+    .tab .tabSlide p.img {width: 75%; height: 455px; margin: 60px auto 0;}
+    .tab.motion .slick-dots {width: 75%;}
+    .tab .slick-dots li.slick-active::after {height: 20px;}
+    .tab .slick-dots li::after {top: -30px;}
+    .tab .tabSlide .bottomBox {transform: translateY(-190px);}
+    .tab .tabSlide .bottomBox img {width: 40%;}
+    .tab .tabSlide .bottomBox .txt {left: 70%; font-size: 12px;}
+    .tab .btn {height: 0;}
+    .tab .btn button {font-size: 12px; width: 150px; height: 40px; line-height: 40px; bottom: 50px;}
+
+    .rfLens {margin-top: 150px;}
+    .rfLens .bg {background-size: 80vw;}
+    .rfLens > .txt {font-size: 15px; margin-bottom: 100px;}
+    .rfLens .txtBox {top: 18px;}
+    .rfLens .txtBox .pageNum span {font-size: 15px;}
+    .rfLens .txtBox .pageNum {font-size: 12px;}
+    .rfLens .txtBox .tit {font-size: 53px;}
+    .rfLens .txtBox .txt {margin-bottom: 15px; font-size: 12px; color: #ccc;}
+    .rfLens .txtBox .viewMore {font-size: 12px; color: #ccc;}
+    .rfLens .txtBox .bar1 {margin-bottom: 25px;}
+    .rfLens .tabSlide .slideInner img {width: 50%;}
+    .rfLens .tabSlide .slick-arrow {top: 35%;}
+    .rfLens .tabSlide .slick-arrow::before {font-size: 60px;}
+    .rfLens .tabSlide .slick-prev {left: 100px;}
+    .rfLens .tabSlide .slick-next {right: 100px;}
+    .rfLens .btn {height: 300px;}
+    .rfLens .btn button {font-size: 12px; width: 150px; height: 40px; line-height: 40px;}
+    
+    .scrollSlide {height: 63vw;}
+    .scrollSlide .slide1, .scrollSlide .slide2 {height: 64vw;}
+
+    .magazine .inner {max-width: 682px; margin-bottom: 100px;}
+    .magazine .inner .imgBox {max-height: 735px;}
+    .magazine .inner .imgBox li {width: 211px; height: 341px;}
+    .magazine .inner .txtBox .tit {font-size: 64px; margin-bottom: 50px;}
+    .magazine .inner .txtBox button {font-size: 12px; width: 150px; height: 40px; line-height: 40px;}
+    .magazine .inner .imgBox li .subTxtBox {left: 25px; bottom: 15px;}
+    .magazine .inner .imgBox li .subTxtBox .subTit br {display: block;} 
+
+    .rEvent {height: 60vw; padding-bottom: 80px;} 
+    .rEvent .slick-arrow {top: 45vw; bottom: initial;}
+    .rEvent .inner .slide {left: 54%;}
+    .rEvent .inner .slide li {max-width: 32vw;}
+    .rEvent .inner .txtBox .tit {font-size: 64px; margin-bottom: 155px; padding-top: 50px;}
+    .rEvent .inner .slide .slick-dots {left: -42%; top: 130px;}
+    .rEvent .inner .slide .slick-dots li button::before {font-size: 3vw;}
+    .rEvent .inner .txtBox button {font-size: 12px; width: 150px; height: 40px; line-height: 40px;}
+    .rEvent .inner .slide li .pageNum span {font-size: 15px;}
+    .rEvent .inner .slide li .pageNum {font-size: 12px; bottom: -6.5vw;}
+
+    
+    footer {padding: 70px 0 80px;}
+    footer .footerInner .arrowTop {display: none;}
+    footer .footerInner .footerLogo {width: 74px; margin: 0 auto 40px;}
+    footer .footerInner .policy li a, footer .footerInner address span, footer .footerInner .copyright {font-size: 12px;}
+    footer .footerInner .policy {width: 380px;}
+    footer .footerInner .policy li span {right: -18px;}
+    footer .footerInner .sns {width: 295px; margin: 0 auto 40px;}
+    footer .footerInner address {margin: 0 auto 40px; width: 100%;}
+    footer .footerInner address br {display: none;}
+    footer .footerInner address br.mo {display: block;}
+    footer .footerInner .copyright {width: 100%;}
+    footer .footerInner .copyright br.mo {display: block;}
+}
+
+/* ~ 882 */
+@media screen and (max-width:882px) {
+    .tab .btn button {top: 90vw;}
+}
+
+/* ~ 767 */
+@media screen and (max-width:767px) {
+    .gnb2::before {display: none;}
+    .gnb2 ul.inner li a.hoverTxt {display: none;}
+    .gnb2.on > ul {flex-wrap: wrap; transform: translate(-50%, 0); width: 90%; top: 20px;}
+    .gnb2.on > ul > li {width: 100%; height: 22vw;}
+    .gnb2 > ul > li .bg {height: 100%;}
+    .gnb2 ul.inner {top: 70%; left: 50%;}
+    .gnb2 ul.inner li {margin-bottom: 5px;}
+
+    .rSeries > .txt {font-size: 5vw;}
+    .rSeries .bg {background-size: 150vw;}
+    .rSeries .autoSlide {height: auto; margin-bottom: 100px;}
+    .rSeries .autoSlide .slide1 .topImg {display: none;}
+    .rSeries .autoSlide .slide1 .topImgMo {display: block;}
+    .rSeries .autoSlide .slide1 .bottomImg {display: none;}
+    .rSeries .autoSlide .slide1 .bottomImgMo {display: block; width: 100vw; left: 0; top: 80vw;}
+    .rSeries .autoSlide .slideEOS a {display: none;}
+    .rSeries .autoSlide .slideEOS a.mo {display: block;}
+    .rSeries .autoSlide .pageNum span {font-size: 21px;}
+    .rSeries .autoSlide .pageNum {font-size: 16px; padding-bottom: 55px;}
+    .rSeries .autoSlide .slide1 .txtBox {padding-top: 32vw; padding-left: 60px;}
+    .rSeries .autoSlide .slide1 .txtBox .tit {font-size: 45px;}
+    .rSeries .autoSlide .slide1 .subTxt {top: 130vw;}
+    .rSeries .autoSlide .slideEOS .pageNum  {top: 32vw; left: 60px;}
+
+    .tab {height: auto; margin-top: 100px; margin-bottom: -30px;}
+    .tab .tabSlide {padding-bottom: 0;}
+    .tab .slick-slide {height: auto;}
+    .tab .tabSlide p.img {width: 100%; height: 100vw; opacity: 0; transform: scale(1.05); transition: all 0.5s ease;}
+    .tab .tabSlide li.slick-active p.img {width: 100%; height: 100vw; opacity: 1; transform: scale(1); transition: all 0.5s ease-in-out; transition-delay: 0.3s;}
+    .tab .tabSlide p.img img {display: none;}
+    .tab .tabSlide p.img .topImgMo {display: block;}
+    .tab .tabSlide .bottomBox {transform: translateY(-72%);}
+    .tab .tabSlide .bottomBox img {width: 54%;}
+    .tab .tabSlide .bottomBox .bottomImg {margin: 0 auto; transform: translateY(0); opacity: 1;}
+    .tab .slick-dots li button::before {font-size: 3vw;}
+    .tab .tabSlide .bottomBox .txt {left: 50%; transform: translateX(-50%); bottom: 0; top: initial;}
+    .tab .tabSlide .bottomBox .txt br {display: none;}
+    .tab .btn button {bottom: 170px; top: initial;}
+
+    .rfLens {margin-bottom: 80px;}
+    .rfLens > .txt {font-size: 5vw;}
+    .rfLens .bg {background-size: 150vw;}
+    .rfLens .txtBox {left: 30px; top: 0;}
+    .rfLens .tabSlide .slideInner {height: 125vw; position: relative;}
+    .rfLens .tabSlide .slideInner img {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
+    .rfLens .txtBox .tit {font-size: 35px;}
+    .rfLens .txtBox .txt {font-size: 12px; width: 80vw;}
+    .rfLens .txtBox .txt br {display: none;}
+    .rfLens .txtBox .bar1, .rfLens .txtBox .bar2 {display: none;}
+    .rfLens .btn {height: 200px;}
+
+    .scrollSlide {height: 100vh;}
+    .scrollSlide .slide1 {background: url(../img/20200709183037502240.jpg) center/cover no-repeat; height: 115vh; max-width: 100vw;}
+    .scrollSlide .slide2 {background: url(../img/20200709183121038242.jpg) center/cover no-repeat; height: 115vh; max-width: 100vw;}
+    .rfLens .txtBox .pageNum span {font-size: 21px;}
+    .rfLens .txtBox .pageNum {font-size: 16px; padding-bottom: 55px;}
+    .scrollSlide .slide .pageNum span {font-size: 21px;}
+    .scrollSlide .slide .pageNum {font-size: 16px; padding-bottom: 55px;}
+    .scrollSlide .slide .playBtn img {max-width: 80%;}
+    .scrollSlide .slide .playBtn a .red {width: 73px; height: 73px;}
+
+    .magazine {margin-top: 100px;}
+    .magazine .inner {width: 100%; margin-bottom: 5vw;}
+    .magazine .inner .txtBox {padding-top: 40vw; padding-left: 20px; box-sizing: border-box;}
+    .magazine .inner .txtBox .tit {font-size: 45px;}
+    .magazine .inner .imgBox {max-height: initial; height: auto;}
+    .magazine .inner .imgBox li {width: 48%; height: 85.33vw; margin-right: 4%;}
+    .magazine .inner .imgBox li.imgBox4 {margin-right: 4%;}
+    .magazine .inner .imgBox li.imgBox1, .magazine .inner .imgBox li.imgBox3, .magazine .inner .imgBox li.imgBox5 {margin-right: 0;}
+    .magazine .inner .imgBox li .subTxtBox {bottom: 25px;}
+    .magazine .inner .imgBox li .subTxtBox .subTit {font-size: 4vw; width: 100%;}
+
+    /* 애니메이션 리셋 */
+    @keyframes imgbox14 {
+        0% {transform: translateY(0); opacity: 0;}
+        100% {transform: translateY(0); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox1.motion, .magazine .inner .imgBox li.imgBox4.motion {animation-name: imgbox14; animation-duration: 0.7s;}
+    @keyframes imgbox25 {
+        0% {transform: translateY(0); opacity: 0;}
+        100% {transform: translateY(0); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox2.motion, .magazine .inner .imgBox li.imgBox5.motion {animation-name: imgbox25; animation-duration: 0.7s;}
+    @keyframes imgbox3 {
+        0% {transform: translateY(0); opacity: 0;}
+        100% {transform: translateY(0); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox3.motion {animation-name: imgbox3; animation-duration: 0.7s;}
+
+    /* 애니메이션 재정의 */
+    @keyframes imgbox135 {
+        0% {transform: translateY(-50px); opacity: 0;}
+        100% {transform: translateY(-100px); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox1.motion, .magazine .inner .imgBox li.imgBox3.motion, .magazine .inner .imgBox li.imgBox5.motion {animation-name: imgbox135; animation-duration: 0.7s;}
+    @keyframes imgbox24 {
+        0% {transform: translateY(0px); opacity: 0;}
+        100% {transform: translateY(-50px); opacity: 1;}
+    }
+    .magazine .inner .imgBox li.imgBox2.motion, .magazine .inner .imgBox li.imgBox4.motion {animation-name: imgbox24; animation-duration: 0.7s;}
+
+    .rEvent {height: 150vw;}
+    .rEvent .inner .txtBox .tit {font-size: 45px; margin-bottom: 120px; padding-top: 0;}
+    .rEvent .inner .slide .slick-dots li button::before {font-size: 19px;}
+    .rEvent .inner .slide {left: 12vw; top: 25%;}
+    .rEvent .inner .slide li {max-width: 70vw; max-height: 100vh;}
+    .rEvent .inner .slide .slick-dots {left: 0; top: -28%;}
+    .rEvent .inner .slide li .pageNum span {font-size: 21px;}
+    .rEvent .inner .slide li .pageNum {font-size: 16px;}
+    .rEvent .inner .slide li.slide1 .pageNum {top: 91vw;}
+    .rEvent .slick-arrow {top: initial; bottom: 30px;}
+    .rEvent .slick-arrow::before {font-size: 18px;}
+    .rEvent .slick-next {left: 50px;}
+}
+
+/* ~ 569 */
+@media screen and (max-width:569px) {
+    .gnb2 ul.inner li a, .tab .tabSlide .bottomBox .txt {font-size: 3vw;}
+    .gnb2 > ul > li > a > .txtImg, .gnb2 > ul > li > a > .txtImg2 {height: 7vw;}
+    .gnb2 ul.inner {left: 40%;}
+    .gnb2.on > ul > li {height: 30vw;}
+    
+    .rSeries .autoSlide .slide1 {height: auto;}
+
+    .tab {padding-top: 30px;}
+    .tab.motion .slick-dots {width: 90%;}
+    .tab .slick-dots li button::before {font-size: 4.5vw;}
+    .tab .btn button {bottom: 100px;}
+
+    .rfLens {margin-bottom: 0;}
+    .rfLens > .txt {margin-bottom: 8vw;}
+    .rfLens .txtBox .pageNum {padding-bottom: 5vw;}
+
+    .scrollSlide {height: auto;}
+    .scrollSlide .slide1, .scrollSlide .slide2 {height: 155vw;}
+    .scrollSlide .slide .pageNum {padding-bottom: 0;}
+
+    .magazine .inner {margin-bottom: 0;}
+    .magazine .inner .txtBox {padding-top: 50vw; padding-left: 8vw;}
+
+    .rEvent {padding-bottom: 20vw;}
+    .rEvent .inner .slide {top: 27%; left: 8vw;}
+    .rEvent .inner .slide li {margin: 20px 20px 70px;}
+    .rEvent .inner .txtBox {padding-left: 8vw;}
+    .rEvent .inner .txtBox .tit {margin-bottom: 20vw;}
+}
+
+/* ~ 480 */
+@media screen and (max-width:480px) {
+    header .innerHeader .mo {right: 80px;}
+
+    .rfLens {margin-top: 10vw;}
+
+    footer .footerInner .policy, footer .footerInner .sns, footer .footerInner address {width: 76%; min-width: 290px;}
+    footer .footerInner .policy li a, footer .footerInner address span, footer .footerInner .copyright {font-size: 2.5vw;}
+    footer .footerInner .policy li span {right: -13px;}
+}
+
+/* ~ 430 */
+@media screen and (max-width:430px) {
+    .tab .btn button {bottom: 60px;}
+    .gnb2 > ul > li > a > .txtImg, .gnb2 > ul > li > a > .txtImg2 {height: 10vw;}
+    .gnb2 ul.inner li a, .tab .tabSlide .bottomBox .txt {font-size: 4vw;}
+    .rEvent {height: 170vw; min-height: 487px;}
+    .rEvent .inner .slide {top: 30%;}
+    .rEvent .inner .txtBox {min-height: 179px;}
+    .rEvent .inner .txtBox .tit {margin-bottom: 28vw;}
+    .rEvent .inner .slide .slick-dots {top: -32%;}
+    .rEvent .inner .slide li .pageNum {top: 92vw;}
+    .rEvent .inner .slide li.slide1 .pageNum {top: 92vw;}
+}
+
+/* ~ 370 */
+@media screen and (max-width:370px) {
+    .visual .txtBox {padding-right: 8%;}
+    .visual .txtBox .tit, .rSeries .autoSlide .slide1 .txtBox .tit, .rfLens .txtBox .tit, .magazine .inner .txtBox .tit, .rEvent .inner .txtBox .tit {font-size: 10.5vw;}
+    .visual .txtBox .txt, .rSeries > .txt, .tab .tabSlide .bottomBox .txt, .rfLens > .txt, .rEvent .inner .slide .slick-dots li button::before {font-size: 6vw;}
+    .visual .btn {font-size: 5vw;}
+    .visual .txtBox button, .tab .btn button, .rfLens .btn button, .rfLens .txtBox .txt, .rfLens .txtBox .viewMore, .magazine .inner .txtBox button, .magazine .inner .imgBox li .subTxtBox .txt, .rEvent .inner .txtBox button {font-size: 4vw;}
+
+    .tab .slick-dots li button::before {font-size: 7vw;}
+    .tab .tabSlide .bottomBox img {width: 70%;}
+    .tab .tabSlide .bottomBox .txt {width: 95%; text-align: center; bottom: -20px;}
+
+    .rfLens .txtBox {padding-right: 10px; box-sizing: border-box;}
+    .rfLens .tabSlide .slideInner img {width: 65%;}
+
+    .rSeries .autoSlide .slide1 .txtBox .txt, .rSeries .autoSlide .slide1 .subTxt {font-size: 3.8vw; padding: 0 10px;}
+    .rSeries .autoSlide .slide1 .subTxt {left: 22%; top: 110vw;}
+    .rSeries .autoSlide .slide1 .txtBox {padding-left: 8%; padding-right: 8%;}
+
+    .magazine .inner .txtBox {margin-bottom: 50px; padding-top: 63vw;}
+
+    .rEvent .inner .slide .slick-dots {top: -35%;}
+
+    footer .footerInner .policy, footer .footerInner .sns {flex-wrap: wrap;}
+}
+
+/* ~330 */
+@media screen and (max-width:330px) {
+    header .innerHeader .mo {right: 67px;}
+
+    footer .footerInner {padding: 0 15px;}
+    footer .footerInner .policy, footer .footerInner .sns, footer .footerInner address {width: 80%; min-width: initial; flex-wrap: wrap; justify-content: normal;}
+    footer .footerInner .policy li {margin-right: 15px;}
+    footer .footerInner .policy li span {right: -10px; font-size: 2.5vw;}
+    footer .footerInner .sns {justify-content: space-between;}
+    footer .footerInner .sns li {margin: 0 8px;}
+    footer .footerInner address span {margin-right: 0;}
+}

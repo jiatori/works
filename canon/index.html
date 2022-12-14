@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(클론코딩)Canon Rchive</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <!-- js -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/script_main.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+    <!-- 상단 스크롤 프로그래스바(진행바) -->
+    <script type="text/javascript" src="https://rawcdn.githack.com/mburakerman/prognroll/0feda211643153bce2c69de32ea1b39cdc64ffbe/src/prognroll.js"></script>
+</head>
+
+
+
+<body>
+    <div class="wrap">
+<!----------------------header---------------------->
+        <header>
+            <div class="innerHeader">
+                <h1 class="logo"><a href="#"><img src="img/logo (1).png" alt=""></a></h1>
+                <h2><a href="#"><img src="img/header_eos.png" alt=""></a></h2>
+                <ul class="centerBox">
+                    <li><a href="#">RTIST</a></li>
+                    <li><a href="#">R SYSTEM</a></li>
+                    <li><a href="#">R GALLERY</a></li>
+                </ul>
+                <div class="rightBox">
+                    <nav class="gnb">
+                        <a href="#">LOGIN</a>
+                        <a href="#">R CLUB</a>
+                        <a href="#">R EVENT</a>
+                        <a href="#">R MAGAZINE</a>
+                    </nav>
+                </div>
+
+                <buttom class="mo"><img src="img/btn_home.png" alt=""></buttom>
+
+                <!-- 돋보기아이콘 클릭 시 검색창 오픈 -->
+                <div class="searchMenu">
+                    <buttom class="searchOpen icon"><img src="img/icon_search_h.png" alt=""></buttom>
+                    <nav class="search">
+                        <a href="#" class="close"><span class="lnr lnr-cross"></span></a>
+                        <div class="inner">
+                            <h2>궁금하신 제품이나 정보를 빠르게 찾아보세요.</h2>
+                            <form action="#">
+                                <input type="search" name="q" placeholder="검색어를 입력해주세요.">
+                                <buttom class="searchOpen icon">
+                                    <img src="img/icon_pop_search.png" alt="">
+                                </buttom>
+                            </form>
+                            <p class="tag">
+                                <span>EOS R5</span>
+                                <span>EOS R</span>
+                                <span>RF24-105mm F4-7.1 IS STM</span>
+                            </p>
+                        </div>
+                    </nav>
+                </div>
+
+
+                <!-- 메뉴아이콘 클릭 시 오픈 -->
+                <div class="gnbMenu">
+                    <buttom class="menuOpen icon"><img src="img/btn_hamburger1.png" alt=""></buttom>
+
+                    <nav class="gnb2">
+                        <a href="#" class="close"><span class="lnr lnr-cross"></span></a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="img/pop_menu_txt1.png" alt="" class="txtImg">
+                                    <img src="img/pop_menu_txt1_on.png" alt="" class="txtImg txtImg2">
+                                    <p class="bg"></p>
+                                    <ul class="inner">
+                                        <li>
+                                            <a href="#" class="hover">RTIST</a>
+                                            <a href="#" class="hoverTxt">EOS R system과 함께하는 프로 작가</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="hover">RTIST STORY</a>
+                                            <a href="#" class="hoverTxt">EOS R system과 Rtist가 함께 연출하는 이야기</a>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="img/pop_menu_txt2.png" alt="" class="txtImg">
+                                    <img src="img/pop_menu_txt2_on.png" alt="" class="txtImg txtImg2">
+                                    <p class="bg"></p>
+                                    <ul class="inner">
+                                        <li>
+                                            <a href="#" class="hover">R SERIES</a>
+                                            <a href="#" class="hoverTxt">카메라 제품 소개</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="hover">RF LENS</a>
+                                            <a href="#" class="hoverTxt">렌즈 제품 소개</a>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="img/pop_menu_txt3.png" alt="" class="txtImg">
+                                    <img src="img/pop_menu_txt3_on.png" alt="" class="txtImg txtImg2">
+                                    <p class="bg"></p>
+                                    <ul class="inner">
+                                        <li><a href="#">REVIEW / INTERVIEW</a></li>
+                                        <li><a href="#">NEWS</a></li>
+                                        <li><a href="#">AD</a></li>
+                                    </ul>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="img/pop_menu_txt4.png" alt="" class="txtImg">
+                                    <img src="img/pop_menu_txt4_on.png" alt="" class="txtImg txtImg2">
+                                    <p class="bg"></p>
+                                    <ul class="inner">
+                                        <li><a href="#">EVENT</a></li>
+                                        <li><a href="#">NOTICE</a></li>
+                                    </ul>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="img/pop_menu_txt5.png" alt="" class="txtImg">
+                                    <img src="img/pop_menu_txt5_on.png" alt="" class="txtImg txtImg2">
+                                    <p class="bg"></p>
+                                    <ul class="inner">
+                                        <li><a href="#">R GALLERY</a></li>
+                                        <li><a href="#">R CLUB GALLERY</a></li>
+                                    </ul>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </header>
+
+
+
+
+<!----------------------section.visual---------------------->
+        <!-- section.visual -->
+        <section class="visual animate" data-animate="motion" id="top">
+            <div class="imgBox img1"></div>
+            <div class="imgBox img2"></div>
+            <div class="imgBox img3"></div>
+            <div class="txtBox animate" data-animate="motion">
+                <h1 class="tit">EOS R SYSTEM</h1>
+                <h2 class="txt">풀프레임 미러리스 카메라의 새로운 기준</h2>
+                <button>R5 VIEW MORE</button>
+            </div>
+            <button class="left btn animate" data-animate="motion">RTIST</button>
+            <button class="right btn animate" data-animate="motion">R GALLERY</button>
+            <button class="scrollDown down">
+                <p class="scroll_txt"><span>SCROLL</span></p>
+                <p class="scroll_bar"><span class="bar"></span></p>
+            </button>
+        </section>
+
+
+
+
+<!----------------------section.rSeries---------------------->
+        <section class="rSeries">
+            <div class="bg"></div>
+            <p class="txt">쾌적,쾌속,고화질을 실현하다</p>
+
+
+            <!-- section.rSreies.slide -->
+            <ul class="autoSlide">
+                <li class="slide1 slideInner">
+                    <div class="txtBox">
+                        <p class="pageNum"><span>01</span> / 03</p>
+                        <h1 class="tit animate" data-animate="motion">REVOLUTION</h1>
+                        <p class="txt animate" data-animate="motion">풀프레임 미러리스의 새로운 기준<br class="mo"> EOS R 시스템은 <br>사진과 영상 촬영의 경계를<br class="mo"> 넘어 표현의 가능성을 확대합니다.</p>
+                    </div>
+                    <img src="img/sec1_img1.jpg" alt="" class="topImg animate" data-animate="motion">
+                    <img src="img/sec1_img1_m.jpg" alt="" class="topImg topImgMo animate" data-animate="motion">
+                    <img src="img/sec1_img2.jpg" alt="" class="bottomImg animate" data-animate="motion">
+                    <img src="img/sec1_img2_m.png" alt="" class="bottomImg bottomImgMo animate" data-animate="motion">
+                    <p class="subTxt animate" data-animate="motion">54mm 대구경과 20mm <br class="mo">짧은 백포커스의 조합 <br><br class="mo"><br class="mo">새로운 RF 렌즈군을 기반으로 더욱 향상된<br class="mo"> 광학 성능과 <br>강력해진 이미지 퀄리티,<br class="mo"> 뛰어난 AF 성능 및 다양한 기능과 <br><br class="mo">EOS만의 편의성이 결집된<br class="mo"> EOS R 시리즈를 만나보세요.</p>
+                </li>
+                <li class="slide2 slideEOS slideInner">
+                    <a href=""><img src="img/20210319173609172011.png" alt=""></a>
+                    <a href="" class="mo"><img src="img/20210319173609303012.png" alt=""></a>
+                    <p class="pageNum"><span>02</span> / 03</p>
+                </li>
+                <li class="slide3 slideEOS slideInner">
+                    <a href=""><img src="img/20210319173450976009.png" alt=""></a>
+                    <a href="" class="mo"><img src="img/20210319173451128010.png" alt=""></a>
+                    <p class="pageNum"><span>03</span> / 03</p>
+                </li>
+            </ul>
+
+
+            <!-- section.rSreies.tab -->
+            <div class="tab animate" data-animate="motion">
+                <ul class="tabSlide">
+                    <li class="tabSlide1 slideInner on">
+                        <p class="img">
+                            <img src="img/20200708133920123001.jpg" alt="" class="topImg">
+                            <img src="img/20200708133920214002.jpg" alt="" class="topImg topImgMo">
+                        </p>
+                        <div class="bottomBox">
+                            <img src="img/20200709182053970235.png" alt="" class="bottomImg">
+                            <p class="txt">8K <br>풀프레임 미러리스의 혁명</p>
+                        </div>
+                    </li>
+
+                    <li class="tabSlide2 slideInner">
+                        <p class="img">
+                            <img src="img/20200708133941786003.jpg" alt="" class="topImg">
+                            <img src="img/20200708133941807004.jpg" alt="" class="topImg topImgMo">
+                        </p>
+                        <div class="bottomBox">
+                            <img src="img/20200709182031371233.png" alt="" class="bottomImg">
+                            <p class="txt">풀프레임 미러리스 <br>선택의 기준</p>
+                        </div>
+                    </li>
+
+                    <li class="tabSlide3 slideInner">
+                        <p class="img">
+                            <img src="img/20200702012401318115.jpg" alt="" class="topImg">
+                            <img src="img/20200702012401340117.jpg" alt="" class="topImg topImgMo">
+                        </p>
+                        <div class="bottomBox">
+                            <img src="img/20200702012401310114.png" alt="" class="bottomImg">
+                            <p class="txt">천체를 담는 <br>풀프레임 스페셜리스트</p>
+                        </div>
+                    </li>
+
+                    <li class="tabSlide4 slideInner">
+                        <p class="img">
+                            <img src="img/20200702010541627075.jpg" alt="" class="topImg">
+                            <img src="img/20200702010541651077.jpg" alt="" class="topImg topImgMo">
+                        </p>
+                        <div class="bottomBox">
+                            <img src="img/20200702010541544074.png" alt="" class="bottomImg">
+                            <p class="txt">캐논의 첫 번째 <br>풀프레임 미러리스</p>
+                        </div>
+                    </li>
+
+                    <li class="tabSlide5 slideInner">
+                        <p class="img">
+                            <img src="img/20200702011049531079.jpg" alt="" class="topImg">
+                            <img src="img/20200702011049584081.jpg" alt="" class="topImg topImgMo">
+                        </p>
+                        <div class="bottomBox">
+                            <img src="img/20200702011049524078.png" alt="" class="bottomImg">
+                            <p class="txt">가볍게 즐기는 <br>모두의 풀프레임</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="btn"><button>CAMERA MORE</button></div>
+                
+            </div>
+        </section>
+
+
+
+
+<!----------------------section.rfLens---------------------->
+        <section class="rfLens">
+            <div class="bg"></div>
+            <p class="txt">RF 마운트와 최적의 조화</p>
+        
+            <ul class="tabSlide">
+                <li class="slide1 slideInner">
+                    <img src="img/20200702013739351127.png" alt="">
+                    <div class="txtBox">
+                        <p class="pageNum"><span>01</span> / 04</p>
+                        <span class="bar1"><span class="bar2"></span></span>
+                        <h1 class="tit animate" data-animate="motion">RF24-70mm <br>F2.8 <span>L</span>IS USM</h1>
+                        <p class="txt animate" data-animate="motion">프로페셔널을 위한 가장 이상적인 표준 줌 렌즈 <br>f/2.8 최대 개방 조리개에서도 빠른 포커싱과 5스탑의 IS 성능 <br>RF 렌즈라 가능한 뛰어난 광학 설계로 <br>어떤 상황에서도 당신을 크리에이티브를 온전히 담아내다</p>
+                        <button class="viewMore animate" data-animate="motion">VIEW MORE +</button>
+                    </div>
+                </li>
+                <li class="slide2 slideInner">
+                    <img src="img/20200702013930592129.png" alt="">
+                    <div class="txtBox">
+                        <p class="pageNum"><span>02</span> / 04</p>
+                        <span class="bar1"><span class="bar2"></span></span>
+                        <h1 class="tit">RF15-35mm <br>F2.8 <span>L</span>IS USM</h1>
+                        <p class="txt">캐논에서 가장 빠른 궁극의 초광각 줌 렌즈 <br>비구면 렌즈 3매, UD 렌즈 2매가 뿜어내는 날카로운 선예도는 기본, <br>캐논이 빚어낸 광각 1mm의 차이가 믿을 수 없는 격차를 만들다</p>
+                        <button class="viewMore">VIEW MORE +</button>
+                    </div>
+                </li>
+                <li class="slide3 slideInner">
+                    <img src="img/20200702014040730131.png" alt="">
+                    <div class="txtBox">
+                        <p class="pageNum"><span>03</span> / 04</p>
+                        <span class="bar1"><span class="bar2"></span></span>
+                        <h1 class="tit">RF70-200mm <br>F2.8 <span>L</span>IS USM</h1>
+                        <p class="txt">타협 없는 캐논만의 광학 기술로 프로페셔널이 요구하는 이미지 퀄리티 실현, <br>듀얼 나노 USM 최초 탑재로 최상의 포커싱 성능을 갖추고도 길이는 단 146.0mm <br>고화질의 망원 줌 렌즈는 크고 무겁다는 기존의 통념을 재정립하다</p>
+                        <button class="viewMore">VIEW MORE +</button>
+                    </div>
+                </li>
+                <li class="slide4 slideInner">
+                    <img src="img/20200709182503478237.png" alt="">
+                    <div class="txtBox">
+                        <p class="pageNum"><span>04</span> / 04</p>
+                        <span class="bar1"><span class="bar2"></span></span>
+                        <h1 class="tit">RF100-500mm <br>F4.5-7.1 <span>L</span>IS USM</h1>
+                        <p class="txt">기동성, 고화질, 500mm 초망원 줌, 강력한 IS <br>캐논의 기술력으로 공존이 불가능했던 스펙들을 한 렌즈에 실현, <br>하이 아마추어부터 프로까지 다양한 분야의 포토그래퍼들을 위한 <br>RF 렌즈 첫 초망원 L 줌 렌즈의 등장</p>
+                        <button class="viewMore">VIEW MORE +</button>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="btn"><button class="lensMore">LENS MORE</button></div>
+        </section>
+
+
+
+
+<!----------------------ul.scrollSlide---------------------->
+        <ul class="scrollSlide">
+            <li class="slide1 slide">
+                <p class="pageNum"><span>01</span> / 02</p>
+                <p class="playBtn">
+                    <a href="#">
+                        <img src="img/btn_play.png" alt="" class="white">
+                        <img src="img/btn_play_red.png" alt="" class="red">
+                    </a>
+                </p>
+            </li>
+            <li class="slide2 slide">
+                <p class="pageNum"><span>02</span> / 02</p>
+                <p class="playBtn">
+                    <a href="#">
+                        <img src="img/btn_play.png" alt="" class="white">
+                        <img src="img/btn_play_red.png" alt="" class="red">
+                    </a>
+                </p>
+            </li>          
+        </ul>
+
+
+
+
+<!----------------------section.magazine---------------------->
+        <section class="magazine">
+            <div class="inner">
+
+                <!-- 텍스트박스 -->
+                <div class="txtBox">
+                    <h1 class="tit">R MAGAZINE</h1>
+                    <button>VIEW MORE</button>
+                </div>
+
+                <!-- 이미지박스 -->
+                <ul class="imgBox">
+                    <li class="imgBox1 animate" data-animate="motion">
+                        <a href="#">
+                            <img src="img/20201209155405727017.jpg" alt="">
+                            <div class="subTxtBox">
+                                <p class="txt">REVIEW</p>
+                                <h2 class="subTit">EOS R6｜이제진짜 <br>본게임 유튜버 '요즘 <br>카메라' 리뷰</h2>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <li class="imgBox2 animate" data-animate="motion">
+                        <a href="#">
+                            <img src="img/20200804170152847318.jpg" alt="">
+                            <div class="subTxtBox">
+                                <p class="txt">INTERVIEW</p>
+                                <h2 class="subTit">EOS R6｜이종범 작가 <br>(picn2k)</h2>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <li class="imgBox3 animate" data-animate="motion">
+                        <a href="#">
+                            <img src="img/20200724144450586297.jpg" alt="">
+                            <div class="subTxtBox">
+                                <p class="txt">INTERVIEW</p>
+                                <h2 class="subTit">EOS R5｜파블로 오 <br>인터뷰</h2>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="imgBox4 animate" data-animate="motion">
+                        <a href="#">
+                            <img src="img/20200722143152457288.jpg" alt="">
+                            <div class="subTxtBox">
+                                <p class="txt">REVIEW</p>
+                                <h2 class="subTit">EOS R5, EOS R6｜<br>비됴클래스</h2>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="imgBox5 animate" data-animate="motion">
+                        <a href="#">
+                            <img src="img/20200713084025875267.jpg" alt="">
+                            <div class="subTxtBox">
+                                <p class="txt">REVIEW</p>
+                                <h2 class="subTit">EOS R6 리뷰｜신동댕동</h2>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+        <!----------------------section.rEvent---------------------->
+        <section class="rEvent">
+            <div class="inner">
+                <div class="txtBox">
+                    <h1 class="tit">R EVENT</h1>
+                    <button>VIEW MORE</button>
+                </div>
+                <ul class="slide">
+                    <li class="slide1">
+                        <a href="#"><img src="img/20220302100556799002.jpg" alt=""></a>
+                        <p class="pageNum"><span>01</span> / 03</p>
+                    </li>
+                    <li class="slide2">
+                        <a href="#"><img src="img/20210714170218674002.jpg" alt=""></a>
+                        <p class="pageNum"><span>02</span> / 03</p>
+                    </li>
+                    <li class="slide3">
+                        <a href="#"><img src="img/20210330105528398017.jpg" alt=""></a>
+                        <p class="pageNum"><span>03</span> / 03</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <footer>
+            <div class="footerInner">
+                <h1 class="footerLogo"><a href="#"><img src="img/footer_logo.jpg" alt=""></a></h1>
+                <ul class="policy">
+                    <li><a href="#">이용약관</a><span>｜</span></li>
+                    <li><a href="#">개인정보처리방침</a><span>｜</span></li>
+                    <li><a href="#">영상정보 처리기기 운영방침</a><span>｜</span></li>
+                    <li><a href="#">고객지원</a></li>
+                </ul>
+                <ul class="sns">
+                    <li class="facebook"><a href="#"></a></li>
+                    <li class="youtube"><a href="#"></a></li>
+                    <li class="instagram"><a href="#"></a></li>
+                    <li class="blog"><a href="#"></a></li>
+                    <li class="kakaostory"><a href="#"></a></li>
+                    <li class="twitter"><a href="#"></a></li>
+                </ul>
+                <address>
+                    <span>캐논코리아 주식회사</span> <span>대표자 : 박정우, 혼마토시오</span> <br class="mo"> <span>사업자등록번호 : 120-81-15636</span> <br> <span>통신판매업 신고번호 : 강남-01282</span> <br class="mo"> <span>주소 : 서울특별시 강남구 테헤란로 607 (삼성동) 고객센터 : 1533-3355</span>
+                </address>
+                <p class="copyright">COPYRIGHT © CANON KOREA INC. <br class="mo"> ALL RIGHTS RESERVED</p>
+                <p class="arrowTop"><a href="#top"><img src="img/btn_top.jpg" alt=""></a></p>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+</html>
